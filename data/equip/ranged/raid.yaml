@@ -1,0 +1,17 @@
+---
+id: 1312911
+name: Magma-forged Throwing Knife
+ilvl: 72
+quality: epic
+origin:
+  category: raid
+  difficulty: mythic
+  zone: molten_core
+equip_type:
+  slot: ranged
+  weapon_type: thrown
+stats:
+  agility: 8
+  armor_penetration_rating: 8
+  attack_power: 19
+...

@@ -1,0 +1,20 @@
+---
+id: 210487
+name: Stompers of Might
+ilvl: 75
+origin:
+  category: raid
+  difficulty: ascended
+  zone: molten_core
+equip_type:
+  slot: feet
+  armor_type: plate
+quality: epic
+stats:
+  armor: 575
+  strength: 25
+  stamina: 17
+  shadow_resistance: 8
+  expertise_rating: 7
+  hit_rating: 9
+...

@@ -1,0 +1,378 @@
+{
+	"definitions": {
+		"origin": {
+			"type": "object",
+			"description": "Source of the equipment",
+			"oneOf": [
+				{ "$ref": "#/definitions/origin_dungeon" },
+				{ "$ref": "#/definitions/origin_raid" },
+				{ "$ref": "#/definitions/origin_quest" },
+				{ "$ref": "#/definitions/origin_vendor" },
+				{ "$ref": "#/definitions/origin_worldforged" },
+				{ "$ref": "#/definitions/origin_world_boss" },
+				{ "$ref": "#/definitions/origin_crafted" },
+				{ "$ref": "#/definitions/origin_boe" }
+			]
+		},
+		"origin_dungeon": {
+			"type": "object",
+			"description": "Dungeon origin",
+			"oneOf": [
+				{ "$ref": "#/definitions/origin_dungeon_normal" },
+				{ "$ref": "#/definitions/origin_dungeon_heroic" },
+				{ "$ref": "#/definitions/origin_dungeon_mythic" }
+			]
+		},
+		"origin_dungeon_normal": {
+			"additionalProperties": false,
+			"required": ["category", "difficulty"],
+			"properties": {
+				"category": {"type": "string", "const": "dungeon"},
+				"difficulty": {"type": "string", "const": "normal"}
+			}
+		},
+		"origin_dungeon_heroic": {
+			"additionalProperties": false,
+			"required": ["category", "difficulty"],
+			"properties": {
+				"category": {"type": "string", "const": "dungeon"},
+				"difficulty": {"type": "string", "const": "heroic"}
+			}
+		},
+		"origin_dungeon_mythic": {
+			"additionalProperties": false,
+			"required": ["category", "difficulty", "level"],
+			"properties": {
+				"category": {"type": "string", "const": "dungeon"},
+				"difficulty": {"type": "string", "const": "mythic"},
+				"level": {"type": "number"}	
+			}
+		},
+		"origin_raid": {
+			"type": "object",
+			"description": "Raid origin",
+			"additionalProperties": false,
+			"required": ["category", "difficulty", "zone"],
+			"properties": {
+				"category": {"type": "string", "const": "raid"},
+				"difficulty": {"type": "string", "enum": ["normal", "heroic", "mythic", "ascended"]},
+				"zone": {"type": "string", "enum": ["zul_gurub", "molten_core", "onyxia"]}
+			}
+		},
+		"origin_quest": {
+			"type": "object",
+			"description": "Quest origin",
+			"additionalProperties": false,
+			"required": ["category"],
+			"properties": {
+				"category": {"type": "string", "const": "quest"}
+			}
+		},
+		"origin_vendor": {
+			"type": "object",
+			"description": "vendor origin",
+			"additionalProperties": false,
+			"required": ["category"],
+			"properties": {
+				"category": {"type": "string", "const": "vendor"}
+			}
+		},
+		"origin_worldforged": {
+			"type": "object",
+			"description": "Worldforged origin",
+			"additionalProperties": false,
+			"required": ["category"],
+			"properties": {
+				"category": {"type": "string", "const": "worldforged"}
+			}
+		},
+		"origin_world_boss": {
+			"type": "object",
+			"description": "World boss origin",
+			"additionalProperties": false,
+			"required": ["category"],
+			"properties": {
+				"category": {"type": "string", "const": "world_boss"}
+			}
+		},
+		"origin_crafted": {
+			"type": "object",
+			"description": "Crafted origin",
+			"additionalProperties": false,
+			"required": ["category"],
+			"properties": {
+				"category": {"type": "string", "const": "crafted"}
+			}
+		},
+		"origin_boe": {
+			"type": "object",
+			"description": "BOE origin",
+			"additionalProperties": false,
+			"required": ["category"],
+			"properties": {
+				"category": {"type": "string", "const": "boe"}
+			}
+		},
+		"equip_type": {
+			"type": "object",
+			"description": "Equipment slot",
+			"oneOf": [
+				{ "$ref": "#/definitions/equip_type_head"},
+				{ "$ref": "#/definitions/equip_type_neck"},
+				{ "$ref": "#/definitions/equip_type_shoulder"},
+				{ "$ref": "#/definitions/equip_type_back"},
+				{ "$ref": "#/definitions/equip_type_chest"},
+				{ "$ref": "#/definitions/equip_type_wrist"},
+				{ "$ref": "#/definitions/equip_type_hands"},
+				{ "$ref": "#/definitions/equip_type_waist"},
+				{ "$ref": "#/definitions/equip_type_legs"},
+				{ "$ref": "#/definitions/equip_type_feet"},
+				{ "$ref": "#/definitions/equip_type_finger"},
+				{ "$ref": "#/definitions/equip_type_trinket"},
+				{ "$ref": "#/definitions/equip_type_main_hand"},
+				{ "$ref": "#/definitions/equip_type_one_hand"},
+				{ "$ref": "#/definitions/equip_type_off_hand"},
+				{ "$ref": "#/definitions/equip_type_two_hand"},
+				{ "$ref": "#/definitions/equip_type_ranged"}
+			]
+		},
+		"equip_type_head": {
+			"type": "object",
+			"description": "Head slot",
+			"additionalProperties": false,
+			"required": ["slot", "armor_type"],
+			"properties": {
+				"slot": {"type": "string", "const": "head"},
+				"armor_type": {"$ref": "#/definitions/armor_type"}
+			}
+		},
+		"equip_type_neck": {
+			"type": "object",
+			"description": "Neck slot",
+			"additionalProperties": false,
+			"properties": {
+				"slot": {"type": "string", "const": "neck"}
+			}
+		},
+		"equip_type_shoulder": {
+			"type": "object",
+			"description": "Shoulder slot",
+			"additionalProperties": false,
+			"required": ["armor_type"],
+			"properties": {
+				"slot": {"type": "string", "const": "shoulder"},
+				"armor_type": {"$ref": "#/definitions/armor_type"}
+			}
+		},
+		"equip_type_back": {
+			"type": "object",
+			"description": "Back slot",
+			"additionalProperties": false,
+			"properties": {
+				"slot": {"type": "string", "const": "back"}
+			}
+		},
+		"equip_type_chest": {
+			"type": "object",
+			"description": "Chest slot",
+			"additionalProperties": false,
+			"required": ["armor_type"],
+			"properties": {
+				"slot": {"type": "string", "const": "chest"},
+				"armor_type": {"$ref": "#/definitions/armor_type"}
+			}
+		},
+		"equip_type_wrist": {
+			"type": "object",
+			"description": "Wrist slot",
+			"additionalProperties": false,
+			"required": ["armor_type"],
+			"properties": {
+				"slot": {"type": "string", "const": "wrist"},
+				"armor_type": {"$ref": "#/definitions/armor_type"}
+			}
+		},
+		"equip_type_hands": {
+			"type": "object",
+			"description": "Hands slot",
+			"additionalProperties": false,
+			"required": ["armor_type"],
+			"properties": {
+				"slot": {"type": "string", "const": "hands"},
+				"armor_type": {"$ref": "#/definitions/armor_type"}
+			}
+		},
+		"equip_type_waist": {
+			"type": "object",
+			"description": "Waist slot",
+			"additionalProperties": false,
+			"required": ["armor_type"],
+			"properties": {
+				"slot": {"type": "string", "const": "waist"},
+				"armor_type": {"$ref": "#/definitions/armor_type"}
+			}
+		},
+		"equip_type_legs": {
+			"type": "object",
+			"description": "Legs slot",
+			"additionalProperties": false,
+			"required": ["armor_type"],
+			"properties": {
+				"slot": {"type": "string", "const": "legs"},
+				"armor_type": {"$ref": "#/definitions/armor_type"}
+			}
+		},
+		"equip_type_feet": {
+			"type": "object",
+			"description": "Feet slot",
+			"additionalProperties": false,
+			"required": ["armor_type"],
+			"properties": {
+				"slot": {"type": "string", "const": "feet"},
+				"armor_type": {"$ref": "#/definitions/armor_type"}
+			}
+		},
+		"equip_type_finger": {
+			"type": "object",
+			"description": "Finger slot",
+			"additionalProperties": false,
+			"properties": {
+				"slot": {"type": "string", "const": "finger"}
+			}
+		},
+		"equip_type_trinket": {
+			"type": "object",
+			"description": "Trinket slot",
+			"additionalProperties": false,
+			"properties": {
+				"slot": {"type": "string", "const": "trinket"}
+			}
+		},
+		"equip_type_main_hand": {
+			"type": "object",
+			"description": "Main hand slot",
+			"additionalProperties": false,
+			"properties": {
+				"slot": {"type": "string", "const": "main_hand"},
+				"weapon_type": {"$ref": "#/definitions/weapon_type_main_hand"}
+			}
+		},
+		"equip_type_one_hand": {
+			"type": "object",
+			"description": "One hand slot",
+			"additionalProperties": false,
+			"properties": {
+				"slot": {"type": "string", "const": "one_hand"},
+				"weapon_type": {"$ref": "#/definitions/weapon_type_one_hand"}
+			}
+		},
+		"equip_type_off_hand": {
+			"type": "object",
+			"description": "Off hand slot",
+			"additionalProperties": false,
+			"properties": {
+				"slot": {"type": "string", "const": "off_hand"},
+				"weapon_type": {"$ref": "#/definitions/weapon_type_off_hand"}
+			}
+		},
+		"equip_type_two_hand": {
+			"type": "object",
+			"description": "Two hand slot",
+			"additionalProperties": false,
+			"properties": {
+				"slot": {"type": "string", "const": "two_hand"},
+				"weapon_type": {"$ref": "#/definitions/weapon_type_two_hand"}
+			}
+		},
+		"equip_type_ranged": {
+			"type": "object",
+			"description": "Ranged slot",
+			"additionalProperties": false,
+			"properties": {
+				"slot": {"type": "string", "const": "ranged"},
+				"weapon_type": {"$ref": "#/definitions/weapon_type_ranged"}
+			}
+		},
+		"armor_type": {
+			"type": "string",
+			"description": "Armor type",
+			"enum": ["cloth", "leather", "mail", "plate"]
+		},
+		"weapon_type_main_hand": {
+			"type": "string",
+			"description": "Weapon type",
+			"enum": ["axe", "dagger", "fist_weapon", "mace", "sword"]
+		},
+		"weapon_type_one_hand": {
+			"type": "string",
+			"description": "Weapon type",
+			"enum": ["axe", "dagger", "fist_weapon", "mace", "sword"]
+		},
+		"weapon_type_off_hand": {
+			"type": "string",
+			"description": "Weapon type",
+			"enum": ["axe", "dagger", "fist_weapon", "mace", "sword", "shield"]
+		},
+		"weapon_type_ranged": {
+			"type": "string",
+			"description": "Weapon type",
+			"enum": ["bow", "crossbow", "gun", "thrown"]
+		},
+		"weapon_type_two_hand": {
+			"type": "string",
+			"description": "Weapon type",
+			"enum": ["axe", "mace", "sword", "polearm", "staff"]
+		},
+		"stats": {
+			"type": "object",
+			"description": "Primary / secondary flat stats",
+			"additionalProperties": false,
+			"properties": {
+				"armor": { "type": "number" },
+				"stamina": { "type": "number" },
+				"attack_power": { "type": "number" },
+				"strength": { "type": "number" },
+				"armor_penetration_rating": { "type": "number" },
+				"agility": { "type": "number" },
+				"critical_strike_rating": { "type": "number" },
+				"haste_rating": { "type": "number" },
+				"expertise_rating": { "type": "number" },
+				"hit_rating": { "type": "number" },
+				"fire_resistance": { "type": "number" },
+				"frost_resistance": { "type": "number" },
+				"nature_resistance": { "type": "number" },
+				"shadow_resistance": { "type": "number" }
+			}
+		}
+	},
+	"type": "object",
+	"required": ["id", "name", "origin", "equip_type", "ilvl", "stats", "quality"],
+	"properties": {
+		"id": {
+			"type": "number",
+			"description": "Unique numeric item identifier"
+		},
+		"name": {
+			"type": "string",
+			"description": "Name of the equipment"
+		},
+		"ilvl": {
+			"type": "number",
+			"description": "Item level of the equipment"
+		},
+		"origin": {"$ref": "#/definitions/origin"},
+		"equip_type": {"$ref": "#/definitions/equip_type"},
+		"quality": {
+			"type": "string",
+			"enum": [
+				"common",
+				"uncommon",
+				"rare",
+				"epic",
+				"legendary"
+			]
+		},
+		"stats": { "$ref": "#/definitions/stats"}		
+	},
+	"additionalProperties": false
+}

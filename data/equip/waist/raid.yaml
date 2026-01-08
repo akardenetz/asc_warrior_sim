@@ -1,0 +1,19 @@
+---
+id: 319137
+name: Onslaught Girdle
+ilvl: 76
+origin:
+  category: raid
+  difficulty: heroic
+  zone: molten_core
+equip_type: 
+  slot: waist
+  armor_type: plate
+quality: epic
+stats:
+  armor: 476
+  strength: 30
+  stamina: 12
+  critical_strike_rating: 12
+  hit_rating: 10
+...

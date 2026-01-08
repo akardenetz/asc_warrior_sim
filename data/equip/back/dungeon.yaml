@@ -1,0 +1,17 @@
+---
+id: 214082
+name: Graverot Cape
+origin:
+  category: dungeon
+  difficulty: mythic
+  level: 10
+equip_type:
+  slot: back
+ilvl: 72
+quality: epic
+stats:
+  armor: 54
+  stamina: 15
+  haste_rating: 15
+  attack_power: 45
+...

@@ -1,0 +1,20 @@
+---
+id: 210482
+name: Chestplate of Might
+ilvl: 75
+origin:
+  category: raid
+  difficulty: ascended
+  zone: molten_core
+quality: epic
+equip_type:
+  slot: chest
+  armor_type: plate
+stats:
+  armor: 831
+  strength: 29
+  stamina: 26
+  fire_resistance: 12
+  hit_rating: 10
+  critical_strike_rating: 15
+...

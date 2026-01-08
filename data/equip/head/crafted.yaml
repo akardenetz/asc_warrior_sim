@@ -1,0 +1,17 @@
+---
+id: 1152979
+name: Lionheart Helm of Expert Might
+ilvl: 68
+origin:
+  category: crafted
+quality: epic
+equip_type:
+  slot: head
+  armor_type: plate
+stats:
+  armor: 678
+  strength: 25
+  critical_strike_rating: 32
+  hit_rating: 22
+  expertise_rating: 4
+...

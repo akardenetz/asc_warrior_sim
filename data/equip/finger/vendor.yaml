@@ -1,0 +1,16 @@
+---
+id: 1545690
+name: Inscribed Warrior's Band
+ilvl: 72
+origin:
+  category: vendor
+equip_type:
+  slot: finger
+quality: epic
+stats:
+  strength: 13
+  stamina: 13
+  critical_strike_rating: 13
+  hit_rating: 9
+  expertise_rating: 5
+...

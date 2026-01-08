@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "./data/equip/schema.json": "data/equip/**/*.yaml",
+  }
+}

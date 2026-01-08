@@ -1,0 +1,15 @@
+---
+id: 1310470
+name: Eternal Flame Artifact
+origin:
+  category: raid
+  difficulty: mythic
+  zone: molten_core
+ilvl: 72
+quality: epic
+equip_type:
+  slot: trinket
+stats:
+  attack_power: 26
+  haste_rating: 9
+...

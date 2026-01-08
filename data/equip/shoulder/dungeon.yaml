@@ -1,0 +1,19 @@
+---
+id: 240391
+name: Raz's Pauldrons
+ilvl: 73
+origin:
+  category: dungeon
+  difficulty: mythic
+  level: 10
+quality: epic
+equip_type:
+  slot: shoulder
+  armor_type: plate
+stats:
+  armor: 608
+  strength: 15
+  stamina: 11
+  critical_strike_rating: 18
+  armor_penetration_rating: 8
+...

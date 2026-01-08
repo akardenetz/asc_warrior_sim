@@ -1,0 +1,13 @@
+---
+id: 1381234
+name: Idol of the Brooding Shadow
+origin:
+  category: worldforged
+ilvl: 70
+quality: epic
+equip_type:
+  slot: trinket
+stats:
+  strength: 15
+  agility: 15
+...

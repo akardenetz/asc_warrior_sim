@@ -1,0 +1,17 @@
+---
+id: 19138
+name: Band of Sulfuras of the Blademaster
+ilvl: 70
+origin:
+  category: raid
+  difficulty: normal
+  zone: molten_core
+equip_type:
+  slot: finger
+quality: epic
+stats:
+  fire_resistance: 20
+  expertise_rating: 11
+  agility: 18
+  attack_power: 25
+...

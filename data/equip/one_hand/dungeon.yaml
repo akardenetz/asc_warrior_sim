@@ -1,0 +1,32 @@
+---
+id: 1063430
+name: Bashguuder
+origin:
+  category: dungeon
+  difficulty: mythic
+  level: 10
+equip_type:
+  slot: one_hand
+  weapon_type: mace
+ilvl: 72
+quality: epic
+stats:
+  strength: 14
+  stamina: 14
+...
+---
+id: 221020
+name: Gargoyle Shredder Talons
+origin:
+  category: dungeon
+  difficulty: mythic
+  level: 10
+equip_type:
+  slot: off_hand
+  weapon_type: fist_weapon
+ilvl: 72
+quality: epic
+stats:
+  haste_rating: 10
+  attack_power: 18
+...

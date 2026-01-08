@@ -1,0 +1,17 @@
+---
+id: 1153174
+name: Titanic Leggings of Sharp Strikes
+ilvl: 68
+origin:
+  category: crafted
+equip_type:
+  slot: legs
+  armor_type: plate
+quality: epic
+stats:
+  armor: 737
+  strength: 34
+  agility: 4
+  critical_strike_rating: 20
+  hit_rating: 22
+...

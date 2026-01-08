@@ -1,0 +1,29 @@
+---
+id: 1380569
+name: Embershard Choker
+ilvl: 70
+origin:
+  category: worldforged
+quality: epic
+equip_type:
+  slot: neck
+stats:
+  stamina: 10
+  armor_penetration_rating: 13
+  haste_rating: 13
+  expertise_rating: 11
+...
+---
+id: 1381063
+name: Bloodtooth Neck
+ilvl: 70
+origin:
+  category: worldforged
+quality: epic
+equip_type:
+  slot: neck
+stats:
+  strength: 14
+  agility: 14
+  stamina: 12
+...

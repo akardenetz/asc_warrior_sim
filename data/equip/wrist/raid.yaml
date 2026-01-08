@@ -1,0 +1,18 @@
+---
+id: 1310483
+name: Wristguards of Might
+ilvl: 72
+origin:
+  category: raid
+  difficulty: mythic
+  zone: molten_core
+quality: epic
+equip_type:
+  slot: wrist
+  armor_type: plate
+stats:
+  armor: 351
+  strength: 19
+  stamina: 13
+  armor_penetration_rating: 8
+...
