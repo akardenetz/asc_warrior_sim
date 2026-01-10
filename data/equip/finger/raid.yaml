@@ -8,7 +8,7 @@ origin:
   zone: molten_core
 equip_type:
   slot: finger
-quality: epic
+rarity: epic
 stats:
   fire_resistance: 20
   expertise_rating: 11

@@ -4,7 +4,7 @@ name: Lionheart Helm of Expert Might
 ilvl: 68
 origin:
   category: crafted
-quality: epic
+rarity: epic
 equip_type:
   slot: head
   armor_type: plate

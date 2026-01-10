@@ -8,11 +8,19 @@ origin:
 equip_type:
   slot: one_hand
   weapon_type: mace
+  speed: 2.6
+  range_min: 109
+  range_max: 173
 ilvl: 72
-quality: epic
+rarity: epic
 stats:
   strength: 14
   stamina: 14
+effect:
+  category: ppm_weapon_hit
+  ppm: 3.0
+  aura_id: 17315
+  aura_placed_on: target
 ...
 ---
 id: 221020
@@ -24,9 +32,40 @@ origin:
 equip_type:
   slot: off_hand
   weapon_type: fist_weapon
+  speed: 2.7
+  range_min: 113
+  range_max: 179
 ilvl: 72
-quality: epic
+rarity: epic
 stats:
   haste_rating: 10
   attack_power: 18
+effect:
+  category: ppm_weapon_hit
+  ppm: 1.0
+  aura_id: 18202
+  aura_placed_on: target
+...
+---
+id: 214274
+name: Bloodfist
+origin:
+  category: dungeon
+  difficulty: mythic
+  level: 10
+equip_type:
+  slot: one_hand
+  weapon_type: fist_weapon
+  speed: 2.6
+  range_min: 110
+  range_max: 172
+ilvl: 72
+rarity: epic
+stats:
+  attack_power: 43
+effect:
+  category: ppm_weapon_hit
+  ppm: 2.5
+  aura_id: 16433
+  aura_placed_on: target
 ...

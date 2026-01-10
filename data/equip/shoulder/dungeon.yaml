@@ -6,7 +6,7 @@ origin:
   category: dungeon
   difficulty: mythic
   level: 10
-quality: epic
+rarity: epic
 equip_type:
   slot: shoulder
   armor_type: plate

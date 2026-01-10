@@ -6,10 +6,15 @@ origin:
   difficulty: mythic
   zone: molten_core
 ilvl: 72
-quality: epic
+rarity: epic
 equip_type:
   slot: trinket
 stats:
   attack_power: 26
   haste_rating: 9
+effect:
+  category: chance_on_melee_ranged_hit
+  chance: 0.05
+  aura_id: 10475
+  aura_placed_on: player
 ...

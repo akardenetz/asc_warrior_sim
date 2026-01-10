@@ -9,7 +9,7 @@ origin:
 equip_type: 
   slot: waist
   armor_type: plate
-quality: epic
+rarity: epic
 stats:
   armor: 476
   strength: 30

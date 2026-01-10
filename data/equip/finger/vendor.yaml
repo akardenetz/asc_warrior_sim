@@ -6,7 +6,7 @@ origin:
   category: vendor
 equip_type:
   slot: finger
-quality: epic
+rarity: epic
 stats:
   strength: 13
   stamina: 13

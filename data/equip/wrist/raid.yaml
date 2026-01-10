@@ -6,7 +6,7 @@ origin:
   category: raid
   difficulty: mythic
   zone: molten_core
-quality: epic
+rarity: epic
 equip_type:
   slot: wrist
   armor_type: plate

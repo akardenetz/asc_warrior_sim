@@ -4,7 +4,7 @@ name: Embershard Choker
 ilvl: 70
 origin:
   category: worldforged
-quality: epic
+rarity: epic
 equip_type:
   slot: neck
 stats:
@@ -19,11 +19,17 @@ name: Bloodtooth Neck
 ilvl: 70
 origin:
   category: worldforged
-quality: epic
+rarity: epic
 equip_type:
   slot: neck
 stats:
   strength: 14
   agility: 14
   stamina: 12
+effect:
+  category: chance_on_melee_ranged_hit_icd
+  chance: 0.1
+  icd: 25
+  aura_id: 312842
+  aura_placed_on: target
 ...

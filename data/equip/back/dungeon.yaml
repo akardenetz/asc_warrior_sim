@@ -8,7 +8,7 @@ origin:
 equip_type:
   slot: back
 ilvl: 72
-quality: epic
+rarity: epic
 stats:
   armor: 54
   stamina: 15

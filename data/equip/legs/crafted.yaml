@@ -7,7 +7,7 @@ origin:
 equip_type:
   slot: legs
   armor_type: plate
-quality: epic
+rarity: epic
 stats:
   armor: 737
   strength: 34

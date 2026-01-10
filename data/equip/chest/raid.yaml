@@ -6,7 +6,7 @@ origin:
   category: raid
   difficulty: ascended
   zone: molten_core
-quality: epic
+rarity: epic
 equip_type:
   slot: chest
   armor_type: plate

@@ -150,6 +150,7 @@
 			"type": "object",
 			"description": "Neck slot",
 			"additionalProperties": false,
+			"required": ["slot"],
 			"properties": {
 				"slot": {"type": "string", "const": "neck"}
 			}
@@ -158,7 +159,7 @@
 			"type": "object",
 			"description": "Shoulder slot",
 			"additionalProperties": false,
-			"required": ["armor_type"],
+			"required": ["slot", "armor_type"],
 			"properties": {
 				"slot": {"type": "string", "const": "shoulder"},
 				"armor_type": {"$ref": "#/definitions/armor_type"}
@@ -168,6 +169,7 @@
 			"type": "object",
 			"description": "Back slot",
 			"additionalProperties": false,
+			"required": ["slot"],
 			"properties": {
 				"slot": {"type": "string", "const": "back"}
 			}
@@ -176,7 +178,7 @@
 			"type": "object",
 			"description": "Chest slot",
 			"additionalProperties": false,
-			"required": ["armor_type"],
+			"required": ["slot", "armor_type"],
 			"properties": {
 				"slot": {"type": "string", "const": "chest"},
 				"armor_type": {"$ref": "#/definitions/armor_type"}
@@ -186,7 +188,7 @@
 			"type": "object",
 			"description": "Wrist slot",
 			"additionalProperties": false,
-			"required": ["armor_type"],
+			"required": ["slot", "armor_type"],
 			"properties": {
 				"slot": {"type": "string", "const": "wrist"},
 				"armor_type": {"$ref": "#/definitions/armor_type"}
@@ -196,7 +198,7 @@
 			"type": "object",
 			"description": "Hands slot",
 			"additionalProperties": false,
-			"required": ["armor_type"],
+			"required": ["slot", "armor_type"],
 			"properties": {
 				"slot": {"type": "string", "const": "hands"},
 				"armor_type": {"$ref": "#/definitions/armor_type"}
@@ -206,7 +208,7 @@
 			"type": "object",
 			"description": "Waist slot",
 			"additionalProperties": false,
-			"required": ["armor_type"],
+			"required": ["slot", "armor_type"],
 			"properties": {
 				"slot": {"type": "string", "const": "waist"},
 				"armor_type": {"$ref": "#/definitions/armor_type"}
@@ -216,7 +218,7 @@
 			"type": "object",
 			"description": "Legs slot",
 			"additionalProperties": false,
-			"required": ["armor_type"],
+			"required": ["slot", "armor_type"],
 			"properties": {
 				"slot": {"type": "string", "const": "legs"},
 				"armor_type": {"$ref": "#/definitions/armor_type"}
@@ -226,7 +228,7 @@
 			"type": "object",
 			"description": "Feet slot",
 			"additionalProperties": false,
-			"required": ["armor_type"],
+			"required": ["slot", "armor_type"],
 			"properties": {
 				"slot": {"type": "string", "const": "feet"},
 				"armor_type": {"$ref": "#/definitions/armor_type"}
@@ -236,6 +238,7 @@
 			"type": "object",
 			"description": "Finger slot",
 			"additionalProperties": false,
+			"required": ["slot"],
 			"properties": {
 				"slot": {"type": "string", "const": "finger"}
 			}
@@ -244,135 +247,248 @@
 			"type": "object",
 			"description": "Trinket slot",
 			"additionalProperties": false,
+			"required": ["slot"],
 			"properties": {
 				"slot": {"type": "string", "const": "trinket"}
 			}
 		},
+		"speed": {"type": "number", "exclusiveMinimum": 0, "maximum": 4, "description": "Weapon speed in seconds"},
+		"range_min": {"type": "integer", "exclusiveMinimum": 0, "description": "Weapon minimum damage"},
+		"range_max": {"type": "integer", "exclusiveMinimum": 0, "description": "Weapon maximum damage"},
 		"equip_type_main_hand": {
 			"type": "object",
 			"description": "Main hand slot",
 			"additionalProperties": false,
+			"required": ["slot", "weapon_type", "speed", "range_min", "range_max"],
 			"properties": {
 				"slot": {"type": "string", "const": "main_hand"},
-				"weapon_type": {"$ref": "#/definitions/weapon_type_main_hand"}
+				"weapon_type": {"$ref": "#/definitions/weapon_type_main_hand"},
+				"speed": 		{"$ref": "#/definitions/speed"},
+				"range_min": 	{"$ref": "#/definitions/range_min"},
+				"range_max": 	{"$ref": "#/definitions/range_max"}
 			}
 		},
 		"equip_type_one_hand": {
 			"type": "object",
 			"description": "One hand slot",
 			"additionalProperties": false,
+			"required": ["slot", "weapon_type", "speed", "range_min", "range_max"],
 			"properties": {
 				"slot": {"type": "string", "const": "one_hand"},
-				"weapon_type": {"$ref": "#/definitions/weapon_type_one_hand"}
+				"weapon_type": {"$ref": "#/definitions/weapon_type_one_hand"},
+				"speed": 		{"$ref": "#/definitions/speed"},
+				"range_min": 	{"$ref": "#/definitions/range_min"},
+				"range_max": 	{"$ref": "#/definitions/range_max"}
 			}
 		},
 		"equip_type_off_hand": {
 			"type": "object",
 			"description": "Off hand slot",
 			"additionalProperties": false,
+			"required": ["slot", "weapon_type", "speed", "range_min", "range_max"],
 			"properties": {
 				"slot": {"type": "string", "const": "off_hand"},
-				"weapon_type": {"$ref": "#/definitions/weapon_type_off_hand"}
+				"weapon_type": {"$ref": "#/definitions/weapon_type_off_hand"},
+				"speed": 		{"$ref": "#/definitions/speed"},
+				"range_min": 	{"$ref": "#/definitions/range_min"},
+				"range_max": 	{"$ref": "#/definitions/range_max"}
 			}
 		},
 		"equip_type_two_hand": {
 			"type": "object",
 			"description": "Two hand slot",
 			"additionalProperties": false,
+			"required": ["slot", "weapon_type", "speed", "range_min", "range_max"],
 			"properties": {
 				"slot": {"type": "string", "const": "two_hand"},
-				"weapon_type": {"$ref": "#/definitions/weapon_type_two_hand"}
+				"weapon_type": {"$ref": "#/definitions/weapon_type_two_hand"},
+				"speed": 		{"$ref": "#/definitions/speed"},
+				"range_min": 	{"$ref": "#/definitions/range_min"},
+				"range_max": 	{"$ref": "#/definitions/range_max"}
 			}
 		},
 		"equip_type_ranged": {
 			"type": "object",
 			"description": "Ranged slot",
 			"additionalProperties": false,
+			"required": ["slot"],
 			"properties": {
-				"slot": {"type": "string", "const": "ranged"},
-				"weapon_type": {"$ref": "#/definitions/weapon_type_ranged"}
+				"slot": {"type": "string", "const": "ranged"}
 			}
 		},
-		"armor_type": {
-			"type": "string",
-			"description": "Armor type",
-			"enum": ["cloth", "leather", "mail", "plate"]
-		},
-		"weapon_type_main_hand": {
-			"type": "string",
-			"description": "Weapon type",
-			"enum": ["axe", "dagger", "fist_weapon", "mace", "sword"]
-		},
-		"weapon_type_one_hand": {
-			"type": "string",
-			"description": "Weapon type",
-			"enum": ["axe", "dagger", "fist_weapon", "mace", "sword"]
-		},
-		"weapon_type_off_hand": {
-			"type": "string",
-			"description": "Weapon type",
-			"enum": ["axe", "dagger", "fist_weapon", "mace", "sword", "shield"]
-		},
-		"weapon_type_ranged": {
-			"type": "string",
-			"description": "Weapon type",
-			"enum": ["bow", "crossbow", "gun", "thrown"]
-		},
-		"weapon_type_two_hand": {
-			"type": "string",
-			"description": "Weapon type",
-			"enum": ["axe", "mace", "sword", "polearm", "staff"]
-		},
+		"armor_type": 				{"type": "string", "description": "Armor type",  "enum": ["cloth", "leather", "mail", "plate"]},
+		"weapon_type_main_hand": 	{"type": "string", "description": "Weapon type", "enum": ["axe", "dagger", "fist_weapon", "mace", "sword"]},
+		"weapon_type_one_hand": 	{"type": "string", "description": "Weapon type", "enum": ["axe", "dagger", "fist_weapon", "mace", "sword"]},
+		"weapon_type_off_hand": 	{"type": "string", "description": "Weapon type", "enum": ["axe", "dagger", "fist_weapon", "mace", "sword"]},
+		"weapon_type_two_hand": 	{"type": "string", "description": "Weapon type", "enum": ["axe", "mace", "sword", "polearm", "staff"]},
 		"stats": {
 			"type": "object",
 			"description": "Primary / secondary flat stats",
 			"additionalProperties": false,
 			"properties": {
-				"armor": { "type": "number" },
-				"stamina": { "type": "number" },
-				"attack_power": { "type": "number" },
-				"strength": { "type": "number" },
-				"armor_penetration_rating": { "type": "number" },
-				"agility": { "type": "number" },
-				"critical_strike_rating": { "type": "number" },
-				"haste_rating": { "type": "number" },
-				"expertise_rating": { "type": "number" },
-				"hit_rating": { "type": "number" },
-				"fire_resistance": { "type": "number" },
-				"frost_resistance": { "type": "number" },
-				"nature_resistance": { "type": "number" },
-				"shadow_resistance": { "type": "number" }
+				"armor": 					{"type": "integer", "exclusiveMinimum": 0},
+				"stamina": 					{"type": "integer", "exclusiveMinimum": 0},
+				"attack_power": 			{"type": "integer", "exclusiveMinimum": 0},
+				"strength": 				{"type": "integer", "exclusiveMinimum": 0},
+				"armor_penetration_rating": {"type": "integer", "exclusiveMinimum": 0},
+				"agility": 					{"type": "integer", "exclusiveMinimum": 0},
+				"critical_strike_rating": 	{"type": "integer", "exclusiveMinimum": 0},
+				"haste_rating": 			{"type": "integer", "exclusiveMinimum": 0},
+				"expertise_rating": 		{"type": "integer", "exclusiveMinimum": 0},
+				"hit_rating": 				{"type": "integer", "exclusiveMinimum": 0},
+				"fire_resistance": 			{"type": "integer", "exclusiveMinimum": 0},
+				"frost_resistance": 		{"type": "integer", "exclusiveMinimum": 0},
+				"nature_resistance": 		{"type": "integer", "exclusiveMinimum": 0},
+				"shadow_resistance": 		{"type": "integer", "exclusiveMinimum": 0}
+			}
+		},
+		"effect": {
+			"type": "object",
+			"description": "Special effect granted by the equipment",
+			"oneOf": [
+				{ "$ref": "#/definitions/effect_on_use" },
+				{ "$ref": "#/definitions/effect_ppm_weapon_hit" },
+				{ "$ref": "#/definitions/effect_chance_on_melee_hit" },
+				{ "$ref": "#/definitions/effect_chance_on_melee_hit_icd" },
+				{ "$ref": "#/definitions/effect_chance_on_melee_ranged_hit" },
+				{ "$ref": "#/definitions/effect_chance_on_melee_ranged_hit_icd" },
+				{ "$ref": "#/definitions/effect_chance_on_melee_crit" },
+				{ "$ref": "#/definitions/effect_chance_on_melee_crit_icd" },
+				{ "$ref": "#/definitions/effect_chance_on_melee_ranged_crit" },
+				{ "$ref": "#/definitions/effect_chance_on_melee_ranged_crit_icd" }
+			]
+		},
+		"aura_id": 	{"type": "integer", "description": "ID of the aura applied by the effect"},
+		"ppm": 		{"type": "number", "exclusiveMinimum": 0, "description": "Procs per minute value for ppm-based effect"},
+		"chance": 	{"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1, "description": "Chance to proc the effect"},
+		"icd": 		{"type": "integer", "exclusiveMinimum": 0, "description": "Internal cooldown in seconds of the effect"},
+		"aura_placed_on": {"type": "string", "enum": ["player", "target"]},
+		"effect_on_use": {
+			"type": "object",
+			"description": "Special effect granted by the equipment when used",
+			"required": ["category", "cooldown", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "on_use"},
+				"on_use_cooldown": {"type": "number", "description": "Cooldown in seconds"},
+				"aura_placed_on": {"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": {"$ref": "#/definitions/aura_id"}
+			}
+		},
+		"effect_ppm_weapon_hit": {
+			"type": "object",
+			"description": "Special effect granted by this weapon on chance on hit (by way of dynamic PPM calculation) with this weapon",
+			"required": ["category", "ppm", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "ppm_weapon_hit"},
+				"ppm": {"$ref": "#/definitions/ppm"},
+				"aura_placed_on": {"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": {"$ref": "#/definitions/aura_id"}
+			}
+		},
+		"effect_chance_on_melee_hit": {
+			"type": "object",
+			"description": "Special effect granted by chance on hit with melee",
+			"required": ["category", "chance", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_hit"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"}
+			}
+		},
+		"effect_chance_on_melee_hit_icd": {
+			"type": "object",
+			"description": "Special effect granted by chance on hit with melee with internal cooldown",
+			"required": ["category", "chance", "icd", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_hit_icd"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"icd": 				{"$ref": "#/definitions/icd"},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"}
+			}
+		},
+		"effect_chance_on_melee_ranged_hit": {
+			"type": "object",
+			"description": "Special effect granted by chance on hit with melee or ranged",
+			"required": ["category", "chance", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_ranged_hit"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"}
+			}
+		},
+		"effect_chance_on_melee_ranged_hit_icd": {
+			"type": "object",
+			"description": "Special effect granted by chance on hit with melee or ranged with internal cooldown",
+			"required": ["category", "chance", "icd", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_ranged_hit_icd"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"icd": 				{"$ref": "#/definitions/icd"},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"}
+			}
+		},
+		"effect_chance_on_melee_crit": {
+			"type": "object",
+			"description": "Special effect granted by chance on crit with melee",
+			"required": ["category", "chance", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_crit"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"}
+			}
+		},
+		"effect_chance_on_melee_crit_icd": {
+			"type": "object",
+			"description": "Special effect granted by chance on crit with melee with internal cooldown",
+			"required": ["category", "chance", "icd", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_crit_icd"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"icd": 				{"$ref": "#/definitions/icd"},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"}
+			}
+		},
+		"effect_chance_on_melee_ranged_crit": {
+			"type": "object",
+			"description": "Special effect granted by chance on crit with melee or ranged",
+			"required": ["category", "chance", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_ranged_crit"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"}
+			}
+		},
+		"effect_chance_on_melee_ranged_crit_icd": {
+			"type": "object",
+			"description": "Special effect granted by chance on crit with melee or ranged with internal cooldown",
+			"required": ["category", "chance", "icd", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_ranged_crit_icd"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"icd": 				{"$ref": "#/definitions/icd"},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"}
 			}
 		}
 	},
 	"type": "object",
-	"required": ["id", "name", "origin", "equip_type", "ilvl", "stats", "quality"],
+	"required": ["id", "name", "origin", "equip_type", "ilvl", "stats", "rarity"],
 	"properties": {
-		"id": {
-			"type": "number",
-			"description": "Unique numeric item identifier"
-		},
-		"name": {
-			"type": "string",
-			"description": "Name of the equipment"
-		},
-		"ilvl": {
-			"type": "number",
-			"description": "Item level of the equipment"
-		},
+		"id": {"type": "integer", "description": "Unique numeric item identifier"},
+		"name": {"type": "string", "description": "Name of the equipment"},
+		"ilvl": {"type": "integer", "exclusiveMinimum": 0, "description": "Item level of the equipment"},
 		"origin": {"$ref": "#/definitions/origin"},
 		"equip_type": {"$ref": "#/definitions/equip_type"},
-		"quality": {
-			"type": "string",
-			"enum": [
-				"common",
-				"uncommon",
-				"rare",
-				"epic",
-				"legendary"
-			]
-		},
-		"stats": { "$ref": "#/definitions/stats"}		
+		"rarity": {"type": "string", "enum": ["common", "uncommon", "rare", "epic", "legendary"], "description": "Rarity of the equipment"},
+		"stats": { "$ref": "#/definitions/stats"},
+		"effect": { "$ref": "#/definitions/effect"}
 	},
 	"additionalProperties": false
 }

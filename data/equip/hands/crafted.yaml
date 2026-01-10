@@ -7,7 +7,7 @@ origin:
 equip_type:
   slot: hands
   armor_type: plate
-quality: epic
+rarity: epic
 stats:
   armor: 573
   strength: 26
