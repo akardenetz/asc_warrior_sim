@@ -1,0 +1,66 @@
+---
+id: 114054
+name: Elixir of Giants
+category: consumable_elixir_battle
+aura_type: buff
+school: physical
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: strength
+    value: 25
+...
+---
+id: 114054
+name: Elixir of Brute Force
+category: consumable_elixir_battle
+aura_type: buff
+school: physical
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: strength
+    value: 18
+  - category: mod_stat
+    stat: stamina
+    value: 18
+...
+---
+id: 17538
+name: Elixir of the Mongoose
+category: consumable_elixir_battle
+aura_type: buff
+school: physical
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: agility
+    value: 25
+  - category: mod_stat
+    stat: critical_strike_rating
+    value: 14
+...
+---
+id: 114054
+name: Elixir of Giants
+category: consumable_elixir_battle
+aura_type: buff
+school: physical
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: strength
+    value: 25
+...
+---
+id: 16323
+name: Juju Power
+category: consumable_elixir_battle
+aura_type: buff
+school: physical
+duration: 1800
+effects:
+  - category: mod_stat
+    stat: strength
+    value: 30
+...

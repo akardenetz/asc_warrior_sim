@@ -1,0 +1,78 @@
+---
+id: 18192
+name: Grilled Squid
+category: consumable_food_buff
+aura_type: buff
+school: physical
+duration: 600
+effects:
+  - category: mod_stat
+    stat: agility
+    value: 10
+...
+---
+id: 18125
+name: Blessed Sunfruit
+category: consumable_food_buff
+aura_type: buff
+school: physical
+duration: 600
+effects:
+  - category: mod_stat
+    stat: strength
+    value: 10
+...
+---
+id: 99999991
+name: Feast
+category: consumable_food_buff
+aura_type: buff
+school: physical
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: stamina
+    value: 15
+  - category: mod_stat
+    stat: attack_power
+    value: 35
+...
+---
+id: 968160
+name: Fused Charred Steak
+category: consumable_food_buff
+aura_type: buff
+school: physical
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: strength
+    value: 36
+...
+---
+id: 968262
+name: Fused Sizzling Roast
+category: consumable_food_buff
+aura_type: buff
+school: physical
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: stamina
+    value: 20
+  - category: mod_stat
+    stat: fire_resistance
+    value: 15
+...
+---
+id: 17315
+name: Rumsey Rum Black Label
+category: consumable_food_buff
+aura_type: buff
+school: physical
+duration: 900
+effects:
+  - category: mod_stat
+    stat: stamina
+    value: 15
+...

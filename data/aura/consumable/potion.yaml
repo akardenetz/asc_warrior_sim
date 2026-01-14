@@ -1,0 +1,27 @@
+---
+id: 17522
+name: Potency Potion
+category: consumable_potion
+aura_type: buff
+school: physical
+duration: 20
+effects:
+  - category: mod_stat
+    stat: critical_strike_rating
+    value: 140
+...
+---
+id: 17528
+name: Mighty Rage Potion
+category: consumable_potion
+aura_type: buff
+school: physical
+duration: 20
+effects:
+  - category: mod_stat
+    stat: strength
+    value: 60
+  - category: give_power
+    value: 60
+    variance: 15
+...

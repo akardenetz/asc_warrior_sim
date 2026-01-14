@@ -1,0 +1,24 @@
+---
+id: 16326
+name: Juju Ember
+category: consumable_elixir_guardian
+aura_type: buff
+school: physical
+duration: 600
+effects:
+  - category: mod_stat
+    stat: fire_resistance
+    value: 15
+...
+---
+id: 11348
+name: Elixir of Superior Defense
+category: consumable_elixir_guardian
+aura_type: buff
+school: physical
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: armor
+    value: 450
+...

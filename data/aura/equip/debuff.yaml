@@ -1,0 +1,57 @@
+---
+id: 18202
+name: Rend (Gargoyle Shredder Talons)
+category: equip
+aura_type: debuff
+school: physical
+mechanic: bleeding
+duration: 30
+effects:
+  - category: periodic_damage
+    occurs_every: 3
+    instance_damage:
+      base_damage: 1
+      attack_power_damage_multiplier: 0.05
+...
+---
+id: 312842
+name: Ripped Flesh (Bloodtooth Neck)
+category: equip
+aura_type: debuff
+school: physical
+mechanic: bleeding
+duration: 15
+effects:
+  - category: periodic_damage
+    occurs_every: 3
+    instance_damage:
+      base_damage: 1
+      attack_power_damage_multiplier: 0.075
+...
+---
+id: 16433
+name: Wound (Bloodfist)
+category: equip
+aura_type: debuff
+school: physical
+effects:
+  - category: damage
+    instance_damage:
+      base_damage: 1
+      attack_power_damage_multiplier: 0.04
+...
+---
+id: 17315
+name: Puncture Armor
+category: equip
+aura_type: debuff
+school: physical
+duration: 30
+effects:
+  - category: mod_stat
+    stat: armor
+    value: -224
+stacks:
+  max_count: 3
+  mod: multiply_value
+...

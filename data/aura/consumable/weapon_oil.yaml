@@ -1,0 +1,24 @@
+---
+id: 99999990
+name: Soldier's Sharpening Stone
+category: consumable_weapon_oil
+aura_type: buff
+school: physical
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: armor_penetration_rating
+    value: 25
+...
+---
+id: 22756
+name: Elemenal Sharpening Stone
+category: consumable_weapon_oil
+aura_type: buff
+school: physical
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: critical_strike_rating
+    value: 28
+...

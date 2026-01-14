@@ -1,0 +1,30 @@
+---
+id: 99999992
+name: Distilled Flask of Savage Assault
+category: consumable_flask
+aura_type: buff
+school: physical
+duration: 7200
+effects:
+  - category: mod_stat
+    stat: attack_power
+    value: 55
+  - category: mod_stat
+    stat: haste_rating
+    value: 25
+...
+---
+id: 99999993
+name: Distilled Flask of the Executioner
+category: consumable_flask
+aura_type: buff
+school: physical
+duration: 7200
+effects:
+  - category: mod_stat
+    stat: attack_power
+    value: 60
+  - category: mod_stat
+    stat: critical_strike_rating
+    value: 15
+...

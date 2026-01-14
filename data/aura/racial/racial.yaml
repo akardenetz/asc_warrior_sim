@@ -1,0 +1,162 @@
+---
+id: 26297
+name: Berserking (Racial)
+category: racial
+aura_type: buff
+school: physical
+duration: 10
+effects:
+  - category: mod_stat
+    stat: haste_percent
+    value: 20
+...
+---
+id: 20557
+name: Beast Slaying (Racial)
+category: racial
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_dealt_percent_vs_beast
+    value: 5
+...
+---
+id: 20592
+name: Arcane Resistance (Racial)
+category: racial
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_taken_percent_arcane
+    value: -2
+...
+---
+id: 822
+name: Magic Resistance (Racial)
+category: racial
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_taken_percent_arcane
+    value: -2
+  - category: mod_stat
+    stat: damage_taken_percent_nature
+    value: -2
+  - category: mod_stat
+    stat: damage_taken_percent_fire
+    value: -2
+  - category: mod_stat
+    stat: damage_taken_percent_frost
+    value: -2
+  - category: mod_stat
+    stat: damage_taken_percent_shadow
+    value: -2
+...
+---
+id: 20574
+name: Axe Specialization (Racial)
+category: racial
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: expertise_points_axe
+    value: 5
+  - category: mod_stat
+    stat: expertise_points_fist
+    value: 5
+...
+---
+id: 20574
+name: Blood Fury (Racial)
+category: racial
+aura_type: buff
+school: physical
+duration: 15
+effects:
+  - category: mod_stat
+    stat: attack_power
+    value: 242
+...
+---
+id: 20864
+name: Mace Specialization (Racial)
+category: racial
+aura_type: buff
+school: physical
+duration: 15
+effects:
+  - category: mod_stat
+    stat: expertise_points_mace
+    value: 3
+...
+---
+id: 20597
+name: Sword Specialization (Racial)
+category: racial
+aura_type: buff
+school: physical
+duration: 15
+effects:
+  - category: mod_stat
+    stat: expertise_points_sword
+    value: 3
+...
+---
+id: 20579
+name: Shadow Resistance (Racial)
+category: racial
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_taken_percent_shadow
+    value: -2
+...
+---
+id: 20550
+name: Endurance (Racial)
+category: racial
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat_percent
+    stat: hit_points_base
+    value: 5
+...
+---
+id: 20583
+name: Nature Resistance (Racial)
+category: racial
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_taken_percent_nature
+    value: -2
+...
+---
+id: 20583
+name: Quickness (Racial)
+category: racial
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: dodge_percent
+    value: 2
+...
+---
+id: 20596
+name: Frost Resistance (Racial)
+category: racial
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_taken_percent_frost
+    value: -2
+...

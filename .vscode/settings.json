@@ -1,5 +1,6 @@
 {
   "yaml.schemas": {
     "./data/equip/schema.json": "data/equip/**/*.yaml",
+    "./data/aura/schema.json": "data/aura/**/*.yaml",
   }
 }

@@ -1,0 +1,25 @@
+{
+    "type": "object",
+	"required": ["name"],
+	"properties": {
+		"name":     {"type": "string", "description": "Name of this equipment manager profile"},
+        "head":     {"type": "integer", "description": "Item ID of head slot equipment"},
+        "neck":     {"type": "integer", "description": "Item ID of neck slot equipment"},
+        "shoulder": {"type": "integer", "description": "Item ID of shoulder slot equipment"},
+        "back":     {"type": "integer", "description": "Item ID of back slot equipment"},
+        "chest":    {"type": "integer", "description": "Item ID of chest slot equipment"},
+        "wrist":    {"type": "integer", "description": "Item ID of wrist slot equipment"},
+        "hands":    {"type": "integer", "description": "Item ID of hands slot equipment"},
+        "waist":    {"type": "integer", "description": "Item ID of waist slot equipment"},
+        "legs":     {"type": "integer", "description": "Item ID of legs slot equipment"},
+        "feet":     {"type": "integer", "description": "Item ID of feet slot equipment"},
+        "finger_1": {"type": "integer", "description": "Item ID of first finger slot equipment"},
+        "finger_2": {"type": "integer", "description": "Item ID of second finger slot equipment"},
+        "trinket_1": {"type": "integer", "description": "Item ID of first trinket slot equipment"},
+        "trinket_2": {"type": "integer", "description": "Item ID of second trinket slot equipment"},
+        "main_hand": {"type": "integer", "description": "Item ID of main hand slot equipment"},
+        "off_hand": {"type": "integer", "description": "Item ID of off hand slot equipment"},
+        "ranged":   {"type": "integer", "description": "Item ID of ranged slot equipment"}
+	},
+	"additionalProperties": false
+}

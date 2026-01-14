@@ -1,0 +1,24 @@
+---
+id: 313146
+name: Brooding Shadow
+category: equip
+aura_type: buff
+school: physical
+duration: 6
+effects:
+  - category: mod_stat
+    stat: haste_rating
+    value: 65
+...
+---
+id: 1310470
+name: Eternal Flame Artifact
+category: equip
+aura_type: buff
+school: physical
+duration: 10
+effects:
+  - category: mod_stat
+    stat: haste_rating
+    value: 200
+...

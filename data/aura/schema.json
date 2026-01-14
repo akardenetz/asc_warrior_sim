@@ -1,0 +1,183 @@
+{
+    "definitions": {
+        "stacks": {
+            "type": "object",
+            "description": "information about stacking behavior of the aura",
+            "additionalProperties": false,
+            "required": ["max_count", "mod"],
+            "properties": {
+                "max_count": {"type": "integer", "description": "Maximum number of stacks allowed"},
+                "mod": {"type": "string", "enum": ["multiply_value", "consumable_charges"] , "description": "How the stacks affect the aura's effect"}
+            }
+        },
+        "occurs_every": {"type": "integer", "description": "Effect occurs every X seconds"},
+        "duration": {"type": "integer", "description": "Duration of the aura in seconds"},
+        "instance_damage": {
+            "type": "object",
+            "description": "Damage per instance details",
+            "additionalProperties": false,
+            "properties": {
+                "base_damage": {"type": "integer", "description": "Base damage per instance"},
+                "weapon_damage_multiplier": {"type": "number", "description": "Multiplier for weapon damage contribution per instance"},
+                "attack_power_damage_multiplier": {"type": "number", "description": "Multiplier for attack power contribution per instance"}
+            }
+        },
+        "effect": {
+            "type": "object",
+            "description": "Effect details of the aura",
+			"oneOf": [
+				{ "$ref": "#/definitions/effect_periodic_damage" },
+                { "$ref": "#/definitions/effect_mod_stat" },
+                { "$ref": "#/definitions/effect_mod_stat_percent" },
+                { "$ref": "#/definitions/effect_give_power" },
+                { "$ref": "#/definitions/effect_damage" }
+			]
+        },
+        "effect_damage": {
+            "type": "object",
+            "description": "Damage effect",
+            "additionalProperties": false,
+            "required": ["category", "instance_damage"],
+            "properties": {
+                "category": {"type": "string", "const": "damage"},
+                "instance_damage": {"$ref": "#definitions/instance_damage"}
+            }
+        },
+        "effect_give_power": {
+            "type": "object",
+            "description": "Giving Rage effect",
+            "additionalProperties": false,
+            "required": ["category", "value"],
+            "properties": {
+                "category": {"type": "string", "const": "give_power"},
+                "occurs_every": {"$ref": "#definitions/occurs_every"},
+                "value": {"type": "integer", "description": "Amount of rage to give per occurrence."},
+                "variance": {"type": "integer", "description": "Maximum variance to add or subtract to the value per occurrence."}
+            }
+        },
+        "effect_periodic_damage": {
+            "type": "object",
+            "description": "Periodic damage effect",
+            "additionalProperties": false,
+            "required": ["category", "occurs_every", "instance_damage"],
+            "properties": {
+                "category": {"type": "string", "const": "periodic_damage"},
+                "occurs_every": {"$ref": "#definitions/occurs_every"},
+                "instance_damage": {"$ref": "#definitions/instance_damage"}
+            }
+        },
+        "effect_mod_stat": {
+            "type": "object",
+            "description": "Stat modification effect",
+            "additionalProperties": false,
+            "required": ["category", "stat", "value"],
+            "properties": {
+                "category": {"type": "string", "const": "mod_stat"},
+                "stat": {"$ref": "#definitions/stat"},
+                "value": {"type": "integer", "description": "Amount to modify the stat by"}
+            }
+        },
+        "improvement_per_point": {
+            "type": "object",
+            "description": "Percent improvement effect is given by talents",
+            "additionalProperties": false,
+            "required": ["max_points", "percent_per_point"],
+            "properties": {
+                "max_points": {"type": "integer", "description": "Maximum number of points in the talent"},
+                "percent_per_point": {"type": "number", "description": "Percent improvement per point of talent"}
+            }
+        },
+        "effect_mod_stat_percent": {
+            "type": "object",
+            "description": "Stat modification effect (percent)",
+            "additionalProperties": false,
+            "required": ["category", "stat", "value"],
+            "properties": {
+                "category": {"type": "string", "const": "mod_stat_percent"},
+                "stat": {"$ref": "#definitions/stat"},
+                "value": {"type": "integer", "description": "Multiple of the stat to modify by. New Value = Base Value * (1 + Mod Value / 100)"}
+            }
+        },
+        "stat": {
+            "type": "string",
+            "description": "Stat to be modified",
+            "enum": [
+                "armor",
+                "stamina",
+                "attack_power",
+                "attack_power_vs_beast",
+                "attack_power_vs_elemental",
+                "strength",
+                "armor_penetration_rating",
+                "armor_penetration_percent",
+                "agility",
+                "critical_strike_rating",
+                "critical_strike_percent",
+                "haste_rating",
+                "haste_percent",
+                "expertise_rating",
+                "expertise_points",
+                "expertise_points_axe",
+                "expertise_points_sword",
+                "expertise_points_mace",
+                "expertise_points_polearm",
+                "expertise_points_fist",
+                "hit_rating",
+                "hit_percent",
+                "fire_resistance",
+                "frost_resistance",
+                "nature_resistance",
+                "shadow_resistance",
+                "arcane_resistance",
+                "hit_points",
+                "hit_points_base",
+                "damage_taken_percent",
+                "damage_taken_percent_physical",
+                "damage_taken_percent_bleeding",
+                "damage_taken_percent_fire",
+                "damage_taken_percent_frost",
+                "damage_taken_percent_shadow",
+                "damage_taken_percent_nature",
+                "damage_taken_percent_arcane",
+                "damage_taken_critical_strike_percent",
+                "damage_dealt_percent",
+                "damage_dealt_percent_physical",
+                "damage_dealt_percent_vs_beast",
+                "dodge_percent"
+            ]
+        }
+    },
+    "type": "object",
+	"required": ["id", "name", "category", "aura_type", "school", "effects"],
+	"properties": {
+        "id": 	{"type": "integer", "description": "ID of the aura"},
+		"name": {"type": "string", "description": "Name of the aura"},
+		"category": {
+            "type": "string",
+            "description": "Category of the source of the aura",
+            "enum": [
+                "consumable_weapon_oil",
+                "consumable_scroll",
+                "consumable_flask",
+                "consumable_elixir_battle",
+                "consumable_elixir_guardian",
+                "consumable_food_buff",
+                "consumable_potion",
+                "consumable_explosive",
+                "consumable_other",
+                "raid_comp",
+                "racial",
+                "equip",
+                "class_warrior"
+            ]
+        },
+        "aura_type": {"type": "string", "enum": ["buff", "debuff"], "description": "Positive or negative effect"},
+		"school": {"type": "string", "enum": ["arcane", "fire", "frost", "holy", "nature", "shadow", "physical"], "description": "School of the aura"},
+        "mechanic": {"type": "string", "enum": ["bleeding"], "description": "Mechanic of the aura"},
+        "effects": {"type": "array", "minitems": 1, "items": {"$ref": "#definitions/effect"}, "description": "List of effects applied by the aura"},
+        "stacks": {"$ref": "#definitions/stacks"},
+        "duration": {"$ref": "#definitions/duration"},
+        "improvement_per_point": {"$ref": "#definitions/improvement_per_point"}
+	},
+	"additionalProperties": false
+}
