@@ -47,9 +47,9 @@ effects:
   - category: mod_stat
     stat: agility
     value: 77
-improvement_per_point:
-  max_points: 3
-  percent_per_point: 5
+# improvement_per_point:
+#   max_points: 3
+#   percent_per_point: 5
 ...
 ---
 id: 21850
@@ -86,12 +86,12 @@ effects:
   - category: mod_stat
     stat: arcane_resistance
     value: 20
-improvement_per_point:
-  max_points: 2
-  percent_per_point: 20
+# improvement_per_point:
+#   max_points: 2
+#   percent_per_point: 20
 ...
 ---
-id: 25289
+id: 1125289
 name: Battle Shout
 category: raid_comp
 aura_type: buff
@@ -101,9 +101,9 @@ effects:
   - category: mod_stat
     stat: attack_power
     value: 232
-improvement_per_point:
-  max_points: 5
-  percent_per_point: 5
+# improvement_per_point:
+#   max_points: 5
+#   percent_per_point: 5
 ...
 ---
 id: 25291
@@ -116,12 +116,12 @@ effects:
   - category: mod_stat
     stat: attack_power
     value: 232
-improvement_per_point:
-  max_points: 5
-  percent_per_point: 5
+# improvement_per_point:
+#   max_points: 5
+#   percent_per_point: 5
 ...
 ---
-id: 25289
+id: 1100469
 name: Commanding Shout
 category: raid_comp
 aura_type: buff
@@ -131,20 +131,9 @@ effects:
   - category: mod_stat
     stat: hit_points
     value: 360
-improvement_per_point:
-  max_points: 5
-  percent_per_point: 5
-...
----
-id: 29801
-name: Rampage
-category: raid_comp
-aura_type: buff
-school: physical
-effects:
-  - category: mod_stat
-    stat: critical_strike_percent
-    value: 5
+# improvement_per_point:
+#   max_points: 5
+#   percent_per_point: 5
 ...
 ---
 id: 17007
@@ -189,9 +178,9 @@ effects:
   - category: mod_stat
     stat: haste_percent
     value: 16
-improvement_per_point:
-  max_points: 2
-  percent_per_point: 12.5
+# improvement_per_point:
+#   max_points: 2
+#   percent_per_point: 12.5
 ...
 ---
 id: 99999994
@@ -270,9 +259,9 @@ effects:
   - category: mod_stat
     stat: stamina
     value: 54
-improvement_per_point:
-  max_points: 2
-  percent_per_point: 15
+# improvement_per_point:
+#   max_points: 2
+#   percent_per_point: 15
 ...
 ---
 id: 28878

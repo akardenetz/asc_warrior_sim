@@ -1,0 +1,461 @@
+---
+id: 1112664
+name: Improved Heroic Strike (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_power_cost
+    affected_spells: [1125286]
+    value: -3
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112658
+name: Improved Rend (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_applied_aura_effectiveness
+    affected_spell: 1111574
+    spell_effect_index_of_applied_aura: 0
+    applied_aura_effect_index: 0
+    mod: add_value_percent
+    value: 20
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112867
+name: Deep Wounds (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: chance_on_melee_crit
+    chance: 100
+    aura_placed_on: target
+    aura_id: 1112721
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112697
+name: Improved Charge (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_effectiveness
+    affected_spell: 1111578
+    mod_effect_index: 0
+    mod: add_value
+    value: 10
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112677
+name: Tactical Mastery (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_effectiveness
+    affected_spell: 1112678
+    mod_effect_index: 0
+    mod: add_value
+    value: 15
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112963
+name: Improved Overpower (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_critical_strike_chance
+    affected_spells: [1107384]
+    value: 50
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1116494
+name: Impale (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_critical_damage_bonus
+    affected_spells:
+    - 1125286
+    - 1150622
+    - 1144949
+    - 1121553
+    - 1107384
+    - 1157755
+    - 1164382
+    - 1111581
+    - 1100694
+    - 1120569
+    - 1101680
+    - 1101681
+    - 1120647
+    - 1150783
+    - 1123881
+    - 1134428
+    - 1186358
+    value: 20
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112712
+name: Two-Handed Weapon Specialization (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_dealt_percent
+    value: 6
+    conditions:
+      - with_two_handed_weapons
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1156638
+name: Taste For Blood (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: chance_on_damage_with_originated_spells
+    chance: 100
+    internal_cooldown: 6
+    originated_with_spells: [1111574]
+    aura_placed_on: player
+    aura_id: 1160503
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112815
+name: Sword Specialization (Rank 5)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: chance_on_melee_hit_trigger_spell
+    chance: 10
+    internal_cooldown: 6
+    spell_id: 1
+    conditions:
+      - with_swords
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112785
+name: Polaxe Specialization (Rank 5)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: critical_strike_percent
+    value: 5
+    conditions:
+      - with_axes_or_polearms
+  - category: mod_stat
+    stat: critical_strike_damage_percent
+    value: 5
+    conditions:
+      - with_axes_or_polearms
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112785
+name: Weapon Mastery (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: dodge_percent_for_attacks
+    value: -2
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112785
+name: Strength of Arms (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: expertise_points
+    value: 4
+  - category: mod_stat_percent
+    stat: strength
+    value: 4
+  - category: mod_stat_percent
+    stat: stamina
+    value: 4
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1146855
+name: Trauma (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: chance_on_melee_crit
+    chance: 100
+    aura_placed_on: target
+    aura_id: 1146857
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1146855
+name: Improved Slam (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_cast_time
+    value: -1
+    affected_spells: [1150783]
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1146855
+name: Juggernaut (Rank 1)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: ignore_spell_state
+    affected_spells: [1111578]
+  - category: mod_spell_cooldown
+    affected_spells: [1111578]
+    value: 5
+  - category: apply_aura_when_spell_used
+    triggering_spells: [1111578]
+    aura_placed_on: player
+    aura_id: 1165156
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1135448
+name: Improved Mortal Strike (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_cooldown
+    affected_spells: [1121553]
+    value: 1.5
+  - category: mod_spell_damage_dealt_percent
+    affected_spells: [1121553]
+    value: 10
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1135448
+name: Unrelenting Assault (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_cooldown
+    affected_spells: [1107384]
+    value: 4
+  - category: mod_spell_damage_dealt_percent
+    affected_spells: [1107384]
+    value: 20
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1129724
+name: Sudden Death (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: chance_on_melee_hit
+    chance: 9
+    aura_placed_on: player
+    aura_id: 1152437
+    conditions:
+      - bad_luck_protection
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1129623
+name: Endless Rage (Rank 1)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat_percent
+    stat: rage_gain_when_damage_dealt
+    value: 25
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1129859
+name: Blood Frenzy (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: chance_on_damage_with_originated_spells
+    chance: 100
+    originated_with_spells: [1112867, 1111574]
+    aura_placed_on: target
+    aura_id: 1130070
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1129859
+name: Wrecking Crew (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: chance_on_melee_crit
+    chance: 100
+    aura_placed_on: player
+    aura_id: 1157520
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112721
+name: Deep Wounds
+category: class_warrior
+aura_type: debuff
+school: physical
+mechanic: bleeding
+duration: 6
+effects:
+  - category: on_refresh_buffer_add_weapon_damage_percent
+    value: 48
+  - category: periodic_damage_from_buffer
+    occurs_every: 1
+flags:
+  - ignore_player_damage_increasing_modifiers
+...
+---
+id: 1160503
+name: Taste For Blood
+category: class_warrior
+aura_type: buff
+school: physical
+duration: 9
+effects:
+  - category: ignore_spell_state
+    affected_spells: [1107384]
+...
+---
+id: 1165156
+name: Juggernaut
+category: class_warrior
+aura_type: buff
+school: physical
+duration: 10
+effects:
+  - category: mod_spell_critical_strike_chance
+    affected_spells: [1121553, 1150783]
+    value: 25
+...
+---
+id: 1152437
+name: Sudden Death
+category: class_warrior
+aura_type: buff
+school: physical
+duration: 10
+effects:
+  - category: ignore_spell_state
+    affected_spells: [1120647]
+...
+---
+id: 1146857
+name: Trauma
+category: class_warrior
+aura_type: debuff
+school: physical
+duration: 60
+effects:
+  - category: mod_stat
+    stat: damage_taken_percent_bleeding
+    value: 30
+...
+---
+id: 1130070
+name: Blood Frenzy
+category: class_warrior
+aura_type: debuff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_taken_percent_physical
+    value: 4
+flags:
+  - duration_inherited_from_parent
+...
+---
+id: 1157520
+name: Enrage (Wrecking Crew)
+category: class_warrior
+aura_type: buff
+school: physical
+mechanic: enraged
+duration: 10
+effects:
+  - category: mod_stat
+    stat: damage_dealt_percent
+    value: 10
+...

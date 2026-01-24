@@ -1,0 +1,84 @@
+---
+id: 1112292
+name: Death Wish
+category: class_warrior
+school: physical
+aura_type: buff
+mechanic: enraged
+duration: 20
+effects:
+  - category: mod_stat
+    stat: damage_taken_percent
+    value: 5
+  - category: mod_stat
+    stat: damage_dealt_percent_physical
+    value: 20
+...
+---
+id: 1101719
+name: Berserker Rage
+category: class_warrior
+school: physical
+aura_type: buff
+mechanic: enraged
+duration: 10
+effects:
+  - category: mod_stat
+    stat: damage_taken_percent
+    value: 20
+...
+---
+id: 1101719
+name: Recklessness
+category: class_warrior
+school: physical
+aura_type: buff
+duration: 10
+stacks:
+  max_count: 3
+  mod: consumable_charges
+effects:
+  - category: mod_spell_critical_strike_chance
+    affected_spells:
+    - 1125286
+    - 1150622
+    - 1144949
+    - 1121553
+    - 1107384
+    - 1157755
+    - 1164382
+    - 1111581
+    - 1100694
+    - 1120569
+    - 1101680
+    - 1101681
+    - 1120647
+    - 1150783
+    - 1123881
+    - 1134428
+    - 1186358
+    value: 100
+  - category: mod_stat
+    stat: damage_taken_percent
+    value: 20
+...
+---
+id: 1102458
+name: Berserker Stance Passive
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: critical_strike_percent_melee_ranged
+    value: 3
+  - category: mod_stat
+    stat: damage_taken_percent
+    value: 5
+  - category: mod_stat
+    stat: threat_percent
+    value: -20
+  - category: mod_stat_percent
+    stat: strength
+    value: 0
+...

@@ -1,0 +1,45 @@
+---
+id: 1118499
+name: Berserker Rage
+gcd: 1.5
+cooldown: 30
+school: physical
+effects:
+  - category: apply_aura
+    apply_on: player
+    aura_id: 1118499
+...
+---
+id: 1112292
+name: Death Wish
+gcd: 1.5
+cooldown: 180
+school: physical
+effects:
+  - category: apply_aura
+    apply_on: player
+    aura_id: 1112292
+...
+---
+id: 1101719
+name: Recklessness
+gcd: 1.5
+cooldown: 180
+school: physical
+effects:
+  - category: apply_aura
+    apply_on: player
+    aura_id: 1101719
+...
+---
+id: 1102458
+name: Berserker Stance
+cooldown: 1
+school: physical
+effects:
+  - category: shapeshift
+    form: berserker_stance
+  - category: apply_aura
+    apply_on: player
+    aura_id: 1102458
+...

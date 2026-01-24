@@ -1,0 +1,142 @@
+---
+id: 1120569
+name: Cleave
+school: physical
+cost: 20
+effects:
+  - category: deal_weapon_damage
+    value: 95
+flags:
+  - on_next_swing
+  - requires_main_hand
+  - discount_power_on_miss
+  - chain_from_caster
+  - treat_as_area_of_effect
+...
+---
+id: 1101680
+name: Whirlwind (Main Hand)
+school: physical
+cost: 25
+cooldown: 10
+gcd: 1.5
+max_targets: 4
+forms:
+  - berserker_stance
+effects:
+  - category: deal_weapon_damage_normalized
+    scalar: 1.0
+    value: 0
+  - category: trigger_spell
+    spell_id: 1101681
+flags:
+  - requires_main_hand
+  - treat_as_area_of_effect
+  - discount_power_on_miss
+...
+---
+id: 1101681
+name: Whirlwind (Off Hand)
+school: physical
+max_targets: 4
+effects:
+  - category: deal_weapon_damage_normalized
+    scalar: 1.0
+    value: 0
+flags:
+  - requires_off_hand
+  - treat_as_area_of_effect
+...
+---
+id: 1120647
+name: Execute
+school: physical
+cost: 15
+cost_max: 30
+gcd: 1.5
+forms:
+  - battle_stance
+  - berserker_stance
+effects:
+  - category: deal_attack_power_damage
+    scalar: 0.2
+    value: 554
+  - category: deal_power_over_cost_damage
+    value: 15
+flags:
+  - requires_main_hand
+  - discount_power_on_miss
+required_state:
+  - target_health_lessthan_20_percent
+...
+---
+id: 1150783
+name: Slam
+school: physical
+cost: 15
+cast_time: 1.5
+gcd: 1.5
+effects:
+  - category: deal_weapon_damage
+    value: 87
+flags:
+  - requires_main_hand
+  - cannot_be_dodged_parried_blocked
+  - discount_power_on_miss
+  - pause_auto_attack
+...
+---
+id: 1103052
+name: Slam (Off-hand)
+school: physical
+effects:
+  - category: deal_weapon_damage
+    value: 87
+flags:
+  - requires_off_hand
+  - cannot_be_dodged_parried_blocked
+...
+---
+id: 1123881
+name: Bloodthirst
+school: physical
+cost: 20
+cooldown: 4
+gcd: 1.5
+effects:
+  - category: deal_attack_power_damage
+    scalar: 0.55
+  - category: apply_aura
+    apply_on: player
+    aura_id: 1123885
+flags:
+  - requires_main_hand
+  - discount_power_on_miss
+...
+---
+id: 1134428
+name: Victory Rush
+school: physical
+gcd: 1.5
+forms:
+  - battle_stance
+  - berserker_stance
+effects:
+  - category: deal_attack_power_damage
+    scalar: 0.45
+...
+---
+id: 1186358
+name: Heroic Leap
+school: physical
+cooldown: 45
+cast_time: 1.0
+effects:
+  - category: deal_attack_power_damage
+    scalar: 0.50
+flags:
+  - requires_main_hand
+  - treat_as_area_of_effect
+  - cannot_be_dodged_parried_blocked
+  - pause_auto_attack
+...

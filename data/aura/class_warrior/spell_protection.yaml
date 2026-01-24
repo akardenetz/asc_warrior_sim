@@ -1,0 +1,12 @@
+---
+id: 1129131
+name: Bloodrage
+category: class_warrior
+aura_type: buff
+school: physical
+duration: 10
+effects:
+  - category: give_power_periodically
+    occurs_every: 1
+    instance_power: 10
+...

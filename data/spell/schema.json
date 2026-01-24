@@ -1,0 +1,210 @@
+{
+    "definitions": {
+        "flags": {
+            "type": "string",
+            "description": "Flags",
+			"enum": [
+                "on_next_swing",
+                "requires_main_hand",
+                "requires_off_hand",
+                "chain_from_caster",
+                "treat_as_area_of_effect",
+                "discount_power_on_miss",
+                "cannot_be_dodged_parried_blocked",
+                "cannot_miss",
+                "requires_combo_points_on_target",
+                "restart_auto_attack",
+                "pause_auto_attack"
+			]
+        },
+        "required_state": {
+            "type": "string",
+            "description": "Flags",
+			"enum": [
+                "target_health_lessthan_20_percent",
+                "target_dodged_in_last_5"
+			]
+        },
+        "effect": {
+            "type": "object",
+            "description": "Effect details of the spell",
+			"oneOf": [
+				{ "$ref": "#/definitions/effect_deal_weapon_damage"},
+                { "$ref": "#/definitions/effect_deal_weapon_damage_normalized"},
+                { "$ref": "#/definitions/effect_deal_attack_power_damage"},
+                { "$ref": "#/definitions/effect_deal_power_over_cost_damage"},
+                { "$ref": "#/definitions/effect_trigger_spell"},
+                { "$ref": "#/definitions/effect_apply_aura"},
+                { "$ref": "#/definitions/effect_shapeshift"},
+                { "$ref": "#/definitions/effect_give_power"},
+                { "$ref": "#/definitions/effect_give_power_on_damage"},
+                { "$ref": "#/definitions/effect_give_power_on_main_hand_hit"},
+                { "$ref": "#/definitions/effect_give_power_on_main_hand_crit"},
+                { "$ref": "#/definitions/effect_give_power_on_off_hand_hit"},
+                { "$ref": "#/definitions/effect_give_power_on_off_hand_crit"}
+                
+			]
+        },
+        "effect_deal_weapon_damage": {
+            "type": "object",
+            "description": "Deals absolute weapon damage, plus a value",
+            "required": ["category", "value"],
+            "properties": {
+                "category": {"type": "string", "const": "deal_weapon_damage"},
+                "value": {"type": "integer", "minimumValue": 0, "description": "Bonus damage added to the absolute weapon damage."}
+            },
+            "additionalProperties": false
+        },
+        "effect_deal_weapon_damage_normalized": {
+            "type": "object",
+            "description": "Deals normalized weapon damage, plus a value",
+            "required": ["category", "scalar", "value"],
+            "properties": {
+                "category": {"type": "string", "const": "deal_weapon_damage_normalized"},
+                "scalar": {"type": "number", "minimumValue": 0, "description": "Scalar multiplied to normalized weapon damage."},
+                "value": {"type": "integer", "minimumValue": 0, "description": "Bonus damage added to the normalized weapon damage."}
+            },
+            "additionalProperties": false
+        },
+        "effect_deal_attack_power_damage": {
+            "type": "object",
+            "description": "Deals damage based on a scalar of attack power, plus a value",
+            "required": ["category", "scalar"],
+            "properties": {
+                "category": {"type": "string", "const": "deal_attack_power_damage"},
+                "scalar": {"type": "number", "minimumValue": 0, "description": "Scalar of attack power to convert to damage."},
+                "value": {"type": "integer", "minimumValue": 0, "description": "Flat bonus damage added."}
+            },
+            "additionalProperties": false
+        },
+        "effect_deal_power_over_cost_damage": {
+            "type": "object",
+            "description": "Deals damage based on power spent over its cost.",
+            "required": ["category", "value"],
+            "properties": {
+                "category": {"type": "string", "const": "deal_power_over_cost_damage"},
+                "value": {"type": "integer", "minimumValue": 1, "description": "Damage value per point of power spent over cost."}
+            },
+            "additionalProperties": false
+        },
+        "effect_trigger_spell": {
+            "type": "object",
+            "description": "Immediately triggers another spell",
+            "required": ["category", "spell_id"],
+            "properties": {
+                "category": {"type": "string", "const": "trigger_spell"},
+                "spell_id": {"type": "integer", "minimumValue": 1, "description": "Spell id of the immediately triggered spell"}
+            },
+            "additionalProperties": false
+        },
+        "effect_apply_aura": {
+            "type": "object",
+            "description": "Triggers an aura",
+            "required": ["category", "apply_on", "aura_id"],
+            "properties": {
+                "category": {"type": "string", "const": "apply_aura"},
+                "apply_on": {"type": "string", "enum": ["player", "target"], "description": "Which unit the aura is applied on"},
+                "aura_id": {"type": "integer", "minimumValue": 1, "description": "Aura id of the applied aura"}
+            },
+            "additionalProperties": false
+        },
+        "effect_shapeshift": {
+            "type": "object",
+            "description": "Changes form",
+            "required": ["category", "form"],
+            "properties": {
+                "category": {"type": "string", "const": "shapeshift"},
+                "form": {"type": "string", "enum": ["battle_stance", "defensive_stance", "berserker_stance"], "description": "Name of the form."}
+            },
+            "additionalProperties": false
+        },
+        "effect_give_power": {
+            "type": "object",
+            "description": "Grants rage.",
+            "required": ["category", "value"],
+            "properties": {
+                "category": {"type": "string", "const": "give_power"},
+                "value": {"type": "integer", "description": "Amount of power gained."}
+            },
+            "additionalProperties": false
+        },
+        "effect_give_power_on_damage": {
+            "type": "object",
+            "description": "Grants rage.",
+            "required": ["category", "rage_per_100_damage"],
+            "properties": {
+                "category": {"type": "string", "const": "give_power_on_damage"},
+                "rage_per_100_damage": {"type": "number", "description": "Amount of rage gained per 100 damage dealt on a given melee."}
+            },
+            "additionalProperties": false
+        },
+        "effect_give_power_on_main_hand_hit": {
+            "type": "object",
+            "description": "Grants rage.",
+            "required": ["category", "rage_per_speed"],
+            "properties": {
+                "category": {"type": "string", "const": "give_power_on_main_hand_hit"},
+                "rage_per_speed": {"type": "number", "description": "Amount of rage gained per speed of equipped main hand on a non-critical hit."}
+            },
+            "additionalProperties": false
+        },
+        "effect_give_power_on_main_hand_crit": {
+            "type": "object",
+            "description": "Grants rage.",
+            "required": ["category", "rage_per_speed"],
+            "properties": {
+                "category": {"type": "string", "const": "give_power_on_main_hand_crit"},
+                "rage_per_speed": {"type": "number", "description": "Amount of rage gained per speed of equipped main hand on a critical hit."}
+            },
+            "additionalProperties": false
+        },
+        "effect_give_power_on_off_hand_hit": {
+            "type": "object",
+            "description": "Grants rage.",
+            "required": ["category", "rage_per_speed"],
+            "properties": {
+                "category": {"type": "string", "const": "give_power_on_off_hand_hit"},
+                "rage_per_speed": {"type": "number", "description": "Amount of rage gained per speed of equipped off hand on a non-critical hit."}
+            },
+            "additionalProperties": false
+        },
+        "effect_give_power_on_off_hand_crit": {
+            "type": "object",
+            "description": "Grants rage.",
+            "required": ["category", "rage_per_speed"],
+            "properties": {
+                "category": {"type": "string", "const": "give_power_on_off_hand_crit"},
+                "rage_per_speed": {"type": "number", "description": "Amount of rage gained per speed of equipped off hand on a critical hit."}
+            },
+            "additionalProperties": false
+        }
+    },
+    "type": "object",
+	"required": ["id", "name", "school", "effects"],
+	"properties": {
+        "id": 	{"type": "integer", "minimumValue": 1, "description": "ID of the spell"},
+		"name": {"type": "string", "description": "Name of the spell"},
+		"school": {"type": "string", "enum": ["arcane", "fire", "frost", "holy", "nature", "shadow", "physical"], "description": "School of the spell"},
+        "mechanic": {"type": "string", "enum": ["bleeding"], "description": "Mechanic of the spell"},
+        "forms": {
+            "type": "array",
+            "minitems": 1,
+            "description": "List of forms the spell may be used in",
+            "items": {
+                "type": "string",
+                "description": "Form required to use the spell",
+                "enum": ["battle_stance", "defensive_stance", "berserker_stance"]
+            }
+        },
+        "cost": {"type": "integer", "minimumValue": 1, "description": "Cost of the spell to use"},
+        "cost_max": {"type": "integer", "minimumValue": 2, "description": "Maximum cost of the spell to use, if the cost is variable."},
+        "gcd": {"type": "number", "minimumValue": 1, "description": "Time in seconds the ability incurrs a GCD. Omit if no GCD required."},
+        "max_targets": {"type": "integer", "minimumValue": 0, "description": "Maximum number of targets the spell can hit. Omit if hits 1 target."},
+        "cast_time": {"type": "number", "minimumValue": 0, "description": "Time in seconds the ability takes to cast. Omit if instant."},
+        "cooldown": {"type": "number", "minimumValue": 0, "description": "Time in seconds the ability takes to cool down. Omit if no cooldown."},
+        "effects": {"type": "array", "minitems": 1, "items": {"$ref": "#definitions/effect"}, "description": "List of effects applied by the spell"},
+        "flags": {"type": "array", "minitems": 1, "items": {"$ref": "#definitions/flags"}, "description": "List of flags for the spell"},
+        "required_state": {"type": "array", "minitems": 1, "items": {"$ref": "#definitions/required_state"}, "description": "List of states required to be present to use the spell"}
+	},
+	"additionalProperties": false
+}

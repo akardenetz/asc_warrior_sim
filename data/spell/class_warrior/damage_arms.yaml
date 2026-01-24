@@ -1,0 +1,184 @@
+---
+id: 1
+name: Melee
+school: physical
+effects:
+  - category: deal_weapon_damage
+    value: 0
+  - category: give_power_on_damage
+    rage_per_100_damage: 1.62619254119688
+  - category: give_power_on_main_hand_crit
+    rage_per_speed: 3.5000
+  - category: give_power_on_main_hand_hit
+    rage_per_speed: 1.7500
+  - category: give_power_on_off_hand_crit
+    rage_per_speed: 1.7500
+  - category: give_power_on_off_hand_hit
+    rage_per_speed: 0.8750
+flags:
+  - on_next_swing
+  - requires_main_hand
+...
+---
+id: 1125286
+name: Heroic Strike
+school: physical
+cost: 15
+effects:
+  - category: deal_weapon_damage
+    value: 201
+flags:
+  - on_next_swing
+  - requires_main_hand
+  - discount_power_on_miss
+...
+---
+id: 1150622
+name: Whirlwind (Bladestorm Main Hand)
+school: physical
+max_targets: 6
+effects:
+  - category: deal_weapon_damage_normalized
+    scalar: 1.2
+    value: 0
+flags:
+  - requires_main_hand
+  - treat_as_area_of_effect
+...
+---
+id: 1144949
+name: Whirlwind (Bladestorm Off Hand)
+school: physical
+max_targets: 6
+effects:
+  - category: deal_weapon_damage_normalized
+    scalar: 1.2
+    value: 0
+flags:
+  - requires_off_hand
+  - treat_as_area_of_effect
+...
+---
+id: 1121553
+name: Mortal Strike
+school: physical
+cost: 30
+cooldown: 6
+gcd: 1.5
+effects:
+  - category: deal_weapon_damage_normalized
+    scalar: 1.0
+    value: 275
+flags:
+  - requires_main_hand
+  - discount_power_on_miss
+...
+---
+id: 1111574
+name: Rend
+school: physical
+cost: 10
+gcd: 1.5
+forms:
+  - battle_stance
+  - defensive_stance
+effects:
+  - category: apply_aura
+    apply_on: target
+    aura_id: 1100772
+flags:
+  - requires_main_hand
+  - discount_power_on_miss
+...
+---
+id: 1107384
+name: Overpower
+school: physical
+cost: 5
+cooldown: 5
+gcd: 1.5
+forms:
+  - battle_stance
+effects:
+  - category: deal_weapon_damage_normalized
+    scalar: 1.0
+    value: 0
+flags:
+  - requires_main_hand
+  - cannot_be_dodged_parried_blocked
+  - discount_power_on_miss
+required_state:
+  - target_dodged_in_last_5
+...
+---
+id: 1157755
+name: Heroic Throw
+school: physical
+cooldown: 60
+cast_time: 1.5
+gcd: 1.5
+effects:
+  - category: deal_attack_power_damage
+    scalar: 0.5
+    value: 12
+flags:
+  - requires_main_hand
+  - cannot_be_dodged_parried_blocked
+  - restart_auto_attack
+...
+---
+id: 1164382
+name: Shattering Throw
+school: physical
+cost: 25
+cooldown: 300
+cast_time: 2.5
+gcd: 1.5
+effects:
+  - category: deal_attack_power_damage
+    scalar: 0.5
+    value: 12
+  - category: apply_aura
+    apply_on: target
+    aura_id: 1164382
+flags:
+  - requires_main_hand
+  - cannot_be_dodged_parried_blocked
+  - discount_power_on_miss
+  - restart_auto_attack
+...
+---
+id: 1111581
+name: Thunder Clap
+school: physical
+cost: 20
+cooldown: 6
+gcd: 1.5
+forms:
+  - battle_stance
+  - berserker_stance
+effects:
+  - category: deal_attack_power_damage
+    scalar: 0.12
+    value: 154
+flags:
+  - cannot_be_dodged_parried_blocked
+...
+---
+id: 1100694
+name: Mocking Blow
+school: physical
+cost: 10
+cooldown: 60
+gcd: 1.5
+forms:
+  - battle_stance
+effects:
+  - category: deal_weapon_damage_normalized
+    scalar: 1.0
+    value: 0
+flags:
+  - requires_main_hand
+  - discount_power_on_miss
+  - cannot_miss
+...

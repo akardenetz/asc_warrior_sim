@@ -1,102 +1,397 @@
 {
     "definitions": {
+        "flags": {
+            "type": "string",
+            "description": "Flags",
+			"enum": [
+                "passive_spell",
+                "aura_is_hidden",
+                "can_proc_from_procs",
+                "ignore_player_damage_increasing_modifiers",
+                "duration_inherited_from_parent"
+			]
+        },
+        "effect_conditions": {
+            "type": "string",
+            "description": "Conditions",
+            "enum": [
+                "with_swords",
+                "with_axes_or_polearms",
+                "with_two_handed_weapons",
+                "with_off_hand",
+                "while_dual_wielding_one_handed_weapons",
+                "bad_luck_protection"
+            ]
+        },
         "stacks": {
             "type": "object",
             "description": "information about stacking behavior of the aura",
-            "additionalProperties": false,
             "required": ["max_count", "mod"],
             "properties": {
                 "max_count": {"type": "integer", "description": "Maximum number of stacks allowed"},
-                "mod": {"type": "string", "enum": ["multiply_value", "consumable_charges"] , "description": "How the stacks affect the aura's effect"}
-            }
+                "mod": {"type": "string", "enum": ["multiply_value", "consumable_charges"], "description": "How the stacks affect the aura's effect"}
+            },
+            "additionalProperties": false
         },
         "occurs_every": {"type": "integer", "description": "Effect occurs every X seconds"},
         "duration": {"type": "integer", "description": "Duration of the aura in seconds"},
         "instance_damage": {
             "type": "object",
             "description": "Damage per instance details",
-            "additionalProperties": false,
             "properties": {
                 "base_damage": {"type": "integer", "description": "Base damage per instance"},
                 "weapon_damage_multiplier": {"type": "number", "description": "Multiplier for weapon damage contribution per instance"},
                 "attack_power_damage_multiplier": {"type": "number", "description": "Multiplier for attack power contribution per instance"}
-            }
+            },
+            "additionalProperties": false
         },
         "effect": {
             "type": "object",
             "description": "Effect details of the aura",
 			"oneOf": [
-				{ "$ref": "#/definitions/effect_periodic_damage" },
-                { "$ref": "#/definitions/effect_mod_stat" },
+				{ "$ref": "#/definitions/effect_periodic_damage"},
+                { "$ref": "#/definitions/effect_trigger_spells_when_spells_used"},
+                { "$ref": "#/definitions/effect_apply_aura_when_spell_used"},
+                { "$ref": "#/definitions/effect_mod_stat"},
                 { "$ref": "#/definitions/effect_mod_stat_percent" },
-                { "$ref": "#/definitions/effect_give_power" },
-                { "$ref": "#/definitions/effect_damage" }
+                { "$ref": "#/definitions/effect_mod_stat_per_value_armor"},
+                { "$ref": "#/definitions/effect_give_power"},
+                { "$ref": "#/definitions/effect_give_power_periodically"},
+                { "$ref": "#/definitions/effect_damage"},
+                { "$ref": "#/definitions/effect_ppm_auto_hit"},
+                { "$ref": "#/definitions/effect_mod_spell_effectiveness"},
+                { "$ref": "#/definitions/effect_mod_spell_applied_aura_effectiveness"},
+                { "$ref": "#/definitions/effect_chance_on_melee_hit_trigger_spell"},
+                { "$ref": "#/definitions/effect_chance_on_melee_hit"},
+                { "$ref": "#/definitions/effect_chance_on_melee_crit"},
+                { "$ref": "#/definitions/effect_chance_on_damage_with_originated_spells"},
+                { "$ref": "#/definitions/effect_chance_on_hit_with_spells"},
+                { "$ref": "#/definitions/effect_on_refresh_buffer_add_weapon_damage_percent"},
+                { "$ref": "#/definitions/effect_periodic_damage_from_buffer"},
+                { "$ref": "#/definitions/effect_mod_spell_power_cost"},
+                { "$ref": "#/definitions/effect_mod_spell_cast_time"},
+                { "$ref": "#/definitions/effect_mod_spell_cooldown"},
+                { "$ref": "#/definitions/effect_mod_spell_damage_dealt_percent"},
+                { "$ref": "#/definitions/effect_mod_spell_critical_strike_chance"},
+                { "$ref": "#/definitions/effect_mod_spell_critical_damage_bonus"},
+                { "$ref": "#/definitions/effect_ignore_spell_state"}
 			]
+        },
+		"aura_id": 	{"type": "integer", "description": "ID of the aura applied by the effect"},
+        "spell_id": {"type": "integer", "description": "ID of the modified spell"},
+		"ppm": 		{"type": "number", "exclusiveMinimum": 0, "description": "Procs per minute value for ppm-based effect"},
+		"chance": 	{"type": "number", "exclusiveMinimum": 0, "inclusiveMaximum": 1, "description": "Chance to proc the effect"},
+		"icd": 		{"type": "integer", "exclusiveMinimum": 0, "description": "Internal cooldown in seconds of the effect"},
+		"aura_placed_on": {"type": "string", "enum": ["player", "target"]},
+		"effect_trigger_spells_when_spells_used": {
+			"type": "object",
+			"description": "Trigger spells when other spells are used.",
+			"required": ["category", "triggering_spells", "triggered_spells"],
+			"properties": {
+				"category": {"type": "string", "const": "trigger_spells_when_spells_used"},
+				"triggering_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spell ids that trigger."},
+                "triggered_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spell ids that are triggered."}
+			}
+		},
+        "effect_apply_aura_when_spell_used": {
+			"type": "object",
+			"description": "Special effect granted when spells are used.",
+			"required": ["category", "triggering_spells", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "apply_aura_when_spell_used"},
+				"triggering_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spell ids that trigger this aura when used."},
+				"aura_placed_on": {"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": {"$ref": "#/definitions/aura_id"}
+			}
+		},
+		"effect_ppm_auto_hit": {
+            "type": "object",
+			"description": "Aura granted by chance on hit (by way of dynamic PPM calculation) with auto attacks or on-next-hit spells.",
+			"required": ["category", "ppm", "aura_id", "aura_placed_on"],
+			"properties": {
+                "category": {"type": "string", "const": "ppm_auto_hit"},
+				"ppm": {"$ref": "#/definitions/ppm"},
+				"aura_placed_on": {"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": {"$ref": "#/definitions/aura_id"}
+			},
+            "additionalProperties": false
+		},
+        "effect_mod_spell_effectiveness": {
+            "type": "object",
+            "description": "Modifies effectiveness of a spell",
+            "required": ["category", "affected_spell", "mod", "mod_effect_index", "value"],
+			"properties": {
+                "category": {"type": "string", "const": "mod_spell_effectiveness"},
+                "affected_spell": {"$ref": "#/definitions/spell_id"},
+				"mod": {"type": "string", "enum": ["add_value_percent", "add_value"], "description": "How the spell is modified"},
+                "mod_effect_index": {"type": "integer", "minimumValue": 0, "description": "0-based index of the effect the effectiveness modifies."},
+                "value": {"type": "integer", "description": "Amount the spell is modified by"}
+			},
+            "additionalProperties": false
+        },
+        "effect_mod_spell_applied_aura_effectiveness": {
+            "type": "object",
+            "description": "Modifies effectiveness of an aura applied by a spell",
+            "required": ["category", "affected_spell", "spell_effect_index_of_applied_aura", "applied_aura_effect_index", "mod", "value"],
+			"properties": {
+                "category": {"type": "string", "const": "mod_spell_applied_aura_effectiveness"},
+                "affected_spell": {"$ref": "#/definitions/spell_id"},
+                "spell_effect_index_of_applied_aura": {"type": "integer", "minimumValue": 0, "description": "0-based index of the effect for this spell which applies the modified aura."},
+                "applied_aura_effect_index": {"type": "integer", "minimumValue": 0, "description": "0-based index of the effect within the applied aura that is modified."},
+				"mod": {"type": "string", "enum": ["add_value_percent", "add_value"], "description": "How the applied aura effect is modified"},
+                "value": {"type": "integer", "description": "Amount the aura effect is modified by"}
+			},
+            "additionalProperties": false
         },
         "effect_damage": {
             "type": "object",
             "description": "Damage effect",
-            "additionalProperties": false,
             "required": ["category", "instance_damage"],
             "properties": {
                 "category": {"type": "string", "const": "damage"},
                 "instance_damage": {"$ref": "#definitions/instance_damage"}
-            }
+            },
+            "additionalProperties": false
         },
         "effect_give_power": {
             "type": "object",
             "description": "Giving Rage effect",
-            "additionalProperties": false,
             "required": ["category", "value"],
             "properties": {
                 "category": {"type": "string", "const": "give_power"},
                 "occurs_every": {"$ref": "#definitions/occurs_every"},
                 "value": {"type": "integer", "description": "Amount of rage to give per occurrence."},
                 "variance": {"type": "integer", "description": "Maximum variance to add or subtract to the value per occurrence."}
-            }
+            },
+            "additionalProperties": false
         },
         "effect_periodic_damage": {
             "type": "object",
             "description": "Periodic damage effect",
-            "additionalProperties": false,
             "required": ["category", "occurs_every", "instance_damage"],
             "properties": {
                 "category": {"type": "string", "const": "periodic_damage"},
                 "occurs_every": {"$ref": "#definitions/occurs_every"},
                 "instance_damage": {"$ref": "#definitions/instance_damage"}
-            }
+            },
+            "additionalProperties": false
+        },
+        "effect_give_power_periodically": {
+            "type": "object",
+            "description": "Periodic power effect",
+            "required": ["category", "occurs_every", "instance_power"],
+            "properties": {
+                "category": {"type": "string", "const": "give_power_periodically"},
+                "occurs_every": {"$ref": "#definitions/occurs_every"},
+                "instance_power": {"type": "integer", "inclusiveMinimum": 1, "description": "Amount of power granted perinstance."}
+            },
+            "additionalProperties": false
+        },
+        "effect_periodic_damage_from_buffer": {
+            "type": "object",
+            "description": "Periodic damage effect via releasing a portion of its value every X over the duration.",
+            "required": ["category", "occurs_every"],
+            "properties": {
+                "category": {"type": "string", "const": "periodic_damage_from_buffer"},
+                "occurs_every": {"$ref": "#definitions/occurs_every"}
+            },
+            "additionalProperties": false
+        },
+        "effect_on_refresh_buffer_add_weapon_damage_percent": {
+            "type": "object",
+            "description": "Value that is added to the buffer when the aura is refreshed, based on weapon damage percentage.",
+            "required": ["category", "value"],
+            "properties": {
+                "category": {"type": "string", "const": "on_refresh_buffer_add_weapon_damage_percent"},
+                "value": {"type": "integer", "inclusiveMinimum": 1, "description": "Percentage weapon damage added to the buffer."}
+            },
+            "additionalProperties": false
+        },
+        "effect_mod_stat_per_value_armor": {
+            "type": "object",
+            "description": "Stat modification based on armor amount",
+            "required": ["category", "stat", "value"],
+            "properties": {
+                "category": {"type": "string", "const": "mod_stat_per_value_armor"},
+                "stat": {"$ref": "#definitions/stat"},
+                "value": {"type": "integer", "description": "Modify the stat by 1 for every X armor"}
+            },
+            "additionalProperties": false
         },
         "effect_mod_stat": {
             "type": "object",
             "description": "Stat modification effect",
-            "additionalProperties": false,
             "required": ["category", "stat", "value"],
             "properties": {
                 "category": {"type": "string", "const": "mod_stat"},
                 "stat": {"$ref": "#definitions/stat"},
-                "value": {"type": "integer", "description": "Amount to modify the stat by"}
-            }
+                "value": {"type": "integer", "description": "Amount to modify the stat by."},
+                "conditions": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/effect_conditions"}, "description": "List of conditions for which this effect to be active."}
+            },
+            "additionalProperties": false
         },
+        "effect_chance_on_melee_hit_trigger_spell": {
+			"type": "object",
+			"description": "Spell triggered by chance on hit with melee",
+			"required": ["category", "chance", "spell_id"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_hit_trigger_spell"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"spell_id": 		{"$ref": "#/definitions/aura_id"},
+                "internal_cooldown": {"type": "integer", "inclusiveMinimum": 1, "description": "Internal cooldown in seconds of the effect. If no ICD omit this property."},
+                "conditions": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/effect_conditions"}, "description": "List of conditions for which this effect to be active."}
+			},
+            "additionalProperties": false
+		},
+		"effect_chance_on_melee_hit": {
+			"type": "object",
+			"description": "Special effect granted by chance on hit with melee",
+			"required": ["category", "chance", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_hit"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"},
+                "conditions": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/effect_conditions"}, "description": "List of conditions for which this effect to be active."}
+			},
+            "additionalProperties": false
+		},
+		"effect_chance_on_melee_crit": {
+			"type": "object",
+			"description": "Special effect granted by chance on crit with melee",
+			"required": ["category", "chance", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_melee_crit"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"}
+			},
+            "additionalProperties": false
+		},
+		"effect_chance_on_damage_with_originated_spells": {
+			"type": "object",
+			"description": "Special effect granted by chance on any damage with originating spells",
+			"required": ["category", "chance", "originated_with_spells", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_damage_with_originated_spells"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+                "originated_with_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spells that may proc the effect."},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"},
+                "internal_cooldown": {"type": "integer", "inclusiveMinimum": 1, "description": "Internal cooldown on the activation of this effect. Omit if none."}
+			},
+            "additionalProperties": false
+		},
+		"effect_chance_on_hit_with_spells": {
+			"type": "object",
+			"description": "Special effect granted by chance on hit with given spells",
+			"required": ["category", "chance", "triggering_spells", "aura_id", "aura_placed_on"],
+			"properties": {
+				"category": {"type": "string", "const": "chance_on_hit_with_spells"},
+				"chance": 			{"$ref": "#/definitions/chance"},
+                "triggering_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spells that may proc the effect."},
+				"aura_placed_on": 	{"$ref": "#/definitions/aura_placed_on"},
+				"aura_id": 			{"$ref": "#/definitions/aura_id"},
+                "internal_cooldown": {"type": "integer", "inclusiveMinimum": 1, "description": "Internal cooldown on the activation of this effect. Omit if none."}
+			},
+            "additionalProperties": false
+		},
         "improvement_per_point": {
             "type": "object",
             "description": "Percent improvement effect is given by talents",
-            "additionalProperties": false,
             "required": ["max_points", "percent_per_point"],
             "properties": {
                 "max_points": {"type": "integer", "description": "Maximum number of points in the talent"},
                 "percent_per_point": {"type": "number", "description": "Percent improvement per point of talent"}
-            }
+            },
+            "additionalProperties": false
+        },
+        "effect_mod_spell_power_cost": {
+            "type": "object",
+            "description": "Spell modification effect",
+            "required": ["category", "value", "affected_spells"],
+            "properties": {
+                "category": {"type": "string", "const": "mod_spell_power_cost"},
+                "value": {"type": "integer", "description": "Amount to modify cost of affected spells by."},
+                "affected_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spell ids modified by the power change."}
+            },
+            "additionalProperties": false
+        },
+        "effect_mod_spell_cast_time": {
+            "type": "object",
+            "description": "Spell modification effect",
+            "required": ["category", "value", "affected_spells"],
+            "properties": {
+                "category": {"type": "string", "const": "mod_spell_cast_time"},
+                "value": {"type": "number", "description": "Amount to modify cast time of affected spells by in seconds."},
+                "affected_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spell ids modified by the cast time change."}
+            },
+            "additionalProperties": false
+        },
+        "effect_mod_spell_cooldown": {
+            "type": "object",
+            "description": "Spell modification effect",
+            "required": ["category", "value", "affected_spells"],
+            "properties": {
+                "category": {"type": "string", "const": "mod_spell_cooldown"},
+                "value": {"type": "number", "description": "Amount to modify cooldown of affected spells by."},
+                "affected_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spell ids modified by the cooldown change."}
+            },
+            "additionalProperties": false
+        },
+        "effect_mod_spell_damage_dealt_percent": {
+            "type": "object",
+            "description": "Spell modification effect",
+            "required": ["category", "value", "affected_spells"],
+            "properties": {
+                "category": {"type": "string", "const": "mod_spell_damage_dealt_percent"},
+                "value": {"type": "integer", "description": "Amount to modify damage dealt percent of affected spells by."},
+                "affected_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spell ids modified by the damage change."}
+            },
+            "additionalProperties": false
+        },
+        "effect_mod_spell_critical_strike_chance": {
+            "type": "object",
+            "description": "Modifies critical strike chance of abilities.",
+            "required": ["category", "value", "affected_spells"],
+            "properties": {
+                "category": {"type": "string", "const": "mod_spell_critical_strike_chance"},
+                "value": {"type": "integer", "description": "Amount of additional critical strike chance."},
+                "affected_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spell ids that have their critical strike chance modified."}
+            },
+            "additionalProperties": false
+        },
+        "effect_mod_spell_critical_damage_bonus": {
+            "type": "object",
+            "description": "Modifies critical damage bonus of abilities.",
+            "required": ["category", "value", "affected_spells"],
+            "properties": {
+                "category": {"type": "string", "const": "mod_spell_critical_damage_bonus"},
+                "value": {"type": "integer", "description": "Amount of additional critical damage bonus."},
+                "affected_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spell ids that have their critical damage bonus modified."}
+            },
+            "additionalProperties": false
         },
         "effect_mod_stat_percent": {
             "type": "object",
             "description": "Stat modification effect (percent)",
-            "additionalProperties": false,
             "required": ["category", "stat", "value"],
             "properties": {
                 "category": {"type": "string", "const": "mod_stat_percent"},
                 "stat": {"$ref": "#definitions/stat"},
                 "value": {"type": "integer", "description": "Multiple of the stat to modify by. New Value = Base Value * (1 + Mod Value / 100)"}
-            }
+            },
+            "additionalProperties": false
+        },
+        "effect_ignore_spell_state": {
+            "type": "object",
+            "description": "When this aura is active, the referenced spell id's state will be ignored. This includes its cooldown or combo points requirements.",
+            "required": ["category", "affected_spells"],
+            "properties": {
+                "category": {"type": "string", "const": "ignore_spell_state"},
+                "affected_spells": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/spell_id"}, "description": "List of spell ids that have their state requirements ignored."}
+            },
+            "additionalProperties": false
         },
         "stat": {
             "type": "string",
@@ -113,8 +408,11 @@
                 "agility",
                 "critical_strike_rating",
                 "critical_strike_percent",
+                "critical_strike_percent_melee_ranged",
+                "critical_strike_damage_percent",
                 "haste_rating",
                 "haste_percent",
+                "attack_speed_percent",
                 "expertise_rating",
                 "expertise_points",
                 "expertise_points_axe",
@@ -143,7 +441,10 @@
                 "damage_dealt_percent",
                 "damage_dealt_percent_physical",
                 "damage_dealt_percent_vs_beast",
-                "dodge_percent"
+                "rage_gain_when_damage_dealt",
+                "dodge_percent",
+                "dodge_percent_for_attacks",
+                "threat_percent"
             ]
         }
     },
@@ -173,11 +474,12 @@
         },
         "aura_type": {"type": "string", "enum": ["buff", "debuff"], "description": "Positive or negative effect"},
 		"school": {"type": "string", "enum": ["arcane", "fire", "frost", "holy", "nature", "shadow", "physical"], "description": "School of the aura"},
-        "mechanic": {"type": "string", "enum": ["bleeding"], "description": "Mechanic of the aura"},
+        "mechanic": {"type": "string", "enum": ["bleeding", "enraged"], "description": "Mechanic of the aura"},
         "effects": {"type": "array", "minitems": 1, "items": {"$ref": "#definitions/effect"}, "description": "List of effects applied by the aura"},
         "stacks": {"$ref": "#definitions/stacks"},
         "duration": {"$ref": "#definitions/duration"},
-        "improvement_per_point": {"$ref": "#definitions/improvement_per_point"}
+        "improvement_per_point": {"$ref": "#definitions/improvement_per_point"},
+        "flags": {"type": "array", "minitems": 1, "items": {"$ref": "#definitions/flags"}, "description": "List of flags for this aura."}
 	},
 	"additionalProperties": false
 }

@@ -360,7 +360,7 @@
 		},
 		"aura_id": 	{"type": "integer", "description": "ID of the aura applied by the effect"},
 		"ppm": 		{"type": "number", "exclusiveMinimum": 0, "description": "Procs per minute value for ppm-based effect"},
-		"chance": 	{"type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1, "description": "Chance to proc the effect"},
+		"chance": 	{"type": "number", "exclusiveMinimum": 0, "inclusiveMaximum": 1, "description": "Chance to proc the effect"},
 		"icd": 		{"type": "integer", "exclusiveMinimum": 0, "description": "Internal cooldown in seconds of the effect"},
 		"aura_placed_on": {"type": "string", "enum": ["player", "target"]},
 		"effect_on_use": {

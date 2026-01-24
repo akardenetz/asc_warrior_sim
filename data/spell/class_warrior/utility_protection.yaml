@@ -1,0 +1,11 @@
+---
+id: 1102687
+name: Bloodrage
+school: physical
+effects:
+  - category: give_power
+    value: 20
+  - category: apply_aura
+    apply_on: player
+    aura_id: 1129131
+...

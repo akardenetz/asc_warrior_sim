@@ -1,0 +1,13 @@
+---
+id: 968767
+name: Brutal Crusader
+category: equip
+aura_type: buff
+school: physical
+duration: 15
+effects:
+  - category: mod_stat
+    stat: strength
+    value: 110
+    scalar_with_single_two_handed: 1.35
+...

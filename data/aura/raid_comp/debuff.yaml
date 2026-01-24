@@ -23,7 +23,7 @@ effects:
     value: -20
 ...
 ---
-id: 7386
+id: 1158567
 name: Sunder Armor
 category: raid_comp
 aura_type: debuff
@@ -61,17 +61,6 @@ effects:
     value: 4
 ...
 ---
-id: 29859
-name: Blood Frenzy
-category: raid_comp
-aura_type: debuff
-school: physical
-effects:
-  - category: mod_stat_percent
-    stat: damage_taken_percent_physical
-    value: 4
-...
----
 id: 33982
 name: Mangle (Cat)
 category: raid_comp
@@ -90,17 +79,6 @@ category: raid_comp
 aura_type: debuff
 school: physical
 duration: 60
-effects:
-  - category: mod_stat
-    stat: damage_taken_percent_bleeding
-    value: 30
-...
----
-id: 46855
-name: Trauma
-category: raid_comp
-aura_type: debuff
-school: physical
 effects:
   - category: mod_stat
     stat: damage_taken_percent_bleeding

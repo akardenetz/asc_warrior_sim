@@ -1,0 +1,14 @@
+---
+id: 1150687
+name: Incite (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_critical_strike_chance
+    affected_spells: [1111581, 1125286, 1120569]
+    value: 15
+flags:
+  - aura_is_hidden
+  - passive_spell
+...

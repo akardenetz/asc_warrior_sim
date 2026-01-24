@@ -1,0 +1,383 @@
+---
+id: 1161222
+name: Armored to the Teeth (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat_per_value_armor
+    stat: attack_power
+    value: 36
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 112856
+name: Cruelty (Rank 5)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: critical_strike_percent
+    value: 5
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112998
+name: Unbridled Wrath (Rank 1)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: ppm_auto_hit
+    ppm: 3
+    aura_placed_on: player
+    aura_id: 1112964
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112999
+name: Unbridled Wrath (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: ppm_auto_hit
+    ppm: 6
+    aura_placed_on: player
+    aura_id: 1112964
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1113000
+name: Unbridled Wrath (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: ppm_auto_hit
+    ppm: 9
+    aura_placed_on: player
+    aura_id: 1112964
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1113001
+name: Unbridled Wrath (Rank 4)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: ppm_auto_hit
+    ppm: 12
+    aura_placed_on: player
+    aura_id: 1112964
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1113002
+name: Unbridled Wrath (Rank 5)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: ppm_auto_hit
+    ppm: 15
+    aura_placed_on: player
+    aura_id: 1112964
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1120496
+name: Improved Cleave (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_effectiveness
+    affected_spell: 20569
+    mod_effect_index: 0
+    mod: add_value_percent
+    value: 120
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1120496
+name: Commanding Presence (Rank 5)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_effectiveness
+    affected_spell: 1125289
+    mod_effect_index: 0
+    mod: add_value_percent
+    value: 25
+  - category: mod_spell_effectiveness
+    affected_spell: 1100469
+    mod_effect_index: 0
+    mod: add_value_percent
+    value: 25
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1123588
+name: Dual Wield Specialization (Rank 5)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_dealt_percent
+    value: 25
+    conditions:
+      - with_off_hand
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1120502
+name: Improved Execute (Rank 1)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_power_cost
+    affected_spells: [1120647]
+    value: -2
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1123588
+name: Improved Execute (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_power_cost
+    affected_spells: [1120647]
+    value: -5
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1129590
+name: Precision (Rank 1)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: hit_percent
+    value: 1
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1129591
+name: Precision (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: hit_percent
+    value: 2
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1129592
+name: Precision (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: hit_percent
+    value: 3
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112972
+name: Flurry (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: chance_on_melee_crit
+    chance: 100
+    aura_id: 1112968
+    aura_placed_on: player
+flags:
+  - aura_is_hidden
+  - passive_spell
+  - can_proc_from_procs
+...
+---
+id: 1129776
+name: Improved Whirlwind (Rank 2)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_damage_dealt_percent
+    affected_spells: [1101680, 1101681]
+    value: 20
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1129776
+name: Improved Berserker Stance (Rank 5)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_applied_aura_effectiveness
+    affected_spell: 1102458
+    spell_effect_index_of_applied_aura: 0
+    applied_aura_effect_index: 2
+    mod: add_value
+    value: -10
+  - category: mod_spell_applied_aura_effectiveness
+    affected_spell: 1102458
+    spell_effect_index_of_applied_aura: 0
+    applied_aura_effect_index: 3
+    mod: add_value
+    value: 20
+
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1129801
+name: Rampage (Rank 1)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: critical_strike_percent_melee_ranged
+    value: 5
+flags:
+  - passive_spell
+...
+---
+id: 1146915
+name: Bloodsurge (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: chance_on_hit_with_spells
+    triggering_spells: [1101680, 1101681, 1125286, 1123881]
+    chance: 20
+    aura_id: 1146916
+    aura_placed_on: player
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1156930
+name: Unending Fury (Rank 3)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_damage_dealt_percent
+    affected_spells: [1101680, 1101681, 1150783, 1103052, 1123881]
+    value: 10
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1156930
+name: Single-Minded Fury (Rank 1)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_dealt_percent
+    value: 5
+    conditions:
+      - while_dual_wielding_one_handed_weapons
+  - category: trigger_spells_when_spells_used
+    triggering_spells: [1150783]
+    triggered_spells: [1103052]
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1112964
+name: Unbridled Wrath
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: give_power
+    value: 1
+...
+---
+id: 1112968
+name: Flurry
+category: class_warrior
+aura_type: buff
+school: physical
+duration: 15
+stacks:
+  max_count: 3
+  mod: consumable_charges
+effects:
+  - category: mod_stat
+    value: 25
+    stat: attack_speed_percent
+...
+---
+id: 1146916
+name: Slam!
+category: class_warrior
+aura_type: buff
+school: physical
+duration: 8
+stacks:
+  max_count: 1
+  mod: consumable_charges
+effects:
+  - category: mod_spell_cast_time
+    value: -1.5
+    affected_spells: [1150783]
+
+...
