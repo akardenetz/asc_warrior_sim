@@ -21,7 +21,8 @@
                 "with_off_hand",
                 "while_dual_wielding_one_handed_weapons",
                 "bad_luck_protection",
-                "while_wielding_two_handed_weapon_in_one_hand"
+                "while_wielding_two_handed_weapon_in_one_hand",
+                "apply_area_aura"
             ]
         },
         "stacks": {
@@ -407,7 +408,8 @@
             "properties": {
                 "category": {"type": "string", "const": "mod_stat_percent"},
                 "stat": {"$ref": "#definitions/stat"},
-                "value": {"type": "integer", "description": "Multiple of the stat to modify by. New Value = Base Value * (1 + Mod Value / 100)"}
+                "value": {"type": "integer", "description": "Multiple of the stat to modify by. New Value = Base Value * (1 + Mod Value / 100)"},
+                "conditions": {"type": "array", "minitems": 1, "items": {"$ref": "#/definitions/effect_conditions"}, "description": "List of conditions for which this effect to be active."}
             },
             "additionalProperties": false
         },
@@ -437,6 +439,7 @@
                 "critical_strike_rating",
                 "critical_strike_percent",
                 "critical_strike_percent_melee_ranged",
+                "critical_strike_percent_spell",
                 "critical_strike_damage_percent",
                 "haste_rating",
                 "haste_percent",
@@ -509,7 +512,7 @@
         },
         "aura_type": {"type": "string", "enum": ["buff", "debuff"], "description": "Positive or negative effect"},
 		"school": {"type": "string", "enum": ["arcane", "fire", "frost", "holy", "nature", "shadow", "physical"], "description": "School of the aura"},
-        "mechanic": {"type": "string", "enum": ["bleeding", "enraged"], "description": "Mechanic of the aura"},
+        "mechanic": {"type": "string", "enum": ["bleeding", "enraged", "poison"], "description": "Mechanic of the aura"},
         "effects": {"type": "array", "minitems": 1, "items": {"$ref": "#definitions/effect"}, "description": "List of effects applied by the aura"},
         "stacks": {"$ref": "#definitions/stacks"},
         "duration": {"$ref": "#definitions/duration"},

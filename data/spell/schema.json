@@ -114,7 +114,16 @@
             "required": ["category", "form"],
             "properties": {
                 "category": {"type": "string", "const": "shapeshift"},
-                "form": {"type": "string", "enum": ["battle_stance", "defensive_stance", "berserker_stance"], "description": "Name of the form."}
+                "form": {
+                    "type": "string",
+                    "description": "Name of the form.",
+                    "enum": [
+                        "battle_stance",
+                        "defensive_stance",
+                        "berserker_stance",
+                        "moonkin_form"
+                    ]
+                }
             },
             "additionalProperties": false
         },

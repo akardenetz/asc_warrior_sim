@@ -1,0 +1,17 @@
+---
+id: 1114767
+name: 'Improved Power Word: Fortitude (Rank 2)'
+category: class_priest
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_applied_aura_effectiveness
+    affected_spell: 1121564
+    spell_effect_index_of_applied_aura: 0
+    applied_aura_effect_index: 0
+    mod: add_value_percent
+    value: 30
+flags:
+  - aura_is_hidden
+  - passive_spell
+...

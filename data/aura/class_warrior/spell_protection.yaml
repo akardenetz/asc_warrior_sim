@@ -3,6 +3,7 @@ id: 1129131
 name: Bloodrage
 category: class_warrior
 aura_type: buff
+mechanic: enraged
 school: physical
 duration: 10
 effects:

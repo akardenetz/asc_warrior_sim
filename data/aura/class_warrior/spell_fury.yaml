@@ -33,6 +33,7 @@ name: Recklessness
 category: class_warrior
 school: physical
 aura_type: buff
+mechanic: enraged
 duration: 10
 stacks:
   max_count: 3

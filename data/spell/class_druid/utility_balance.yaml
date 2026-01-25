@@ -1,0 +1,12 @@
+---
+id: 1124858
+name: Moonkin Form
+gcd: 1.5
+school: physical
+effects:
+  - category: shapeshift
+    form: moonkin_form
+  - category: apply_aura
+    apply_on: player
+    aura_id: 1124907
+...

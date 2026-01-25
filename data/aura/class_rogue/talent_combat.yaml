@@ -1,5 +1,21 @@
 ---
-id: 58683
+id: 1158413
+name: Savage Combat (Rank 2)
+category: class_rogue
+aura_type: buff
+school: physical
+effects:
+  - category: chance_on_damage_with_originated_spells
+    chance: 100
+    originated_with_spells: [1125351]
+    aura_placed_on: target
+    aura_id: 1158683
+flags:
+  - passive_spell
+  - aura_is_hidden
+...
+---
+id: 1158683
 name: Savage Combat
 category: class_rogue
 aura_type: debuff
@@ -8,4 +24,6 @@ effects:
   - category: mod_stat
     stat: damage_taken_percent_physical
     value: 4
+flags:
+  - duration_inherited_from_parent
 ...

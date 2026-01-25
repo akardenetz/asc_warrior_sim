@@ -1,0 +1,10 @@
+---
+id: 1121564
+name: Prayer of Fortitude
+gcd: 1.5
+school: holy
+effects:
+  - category: apply_aura
+    apply_on: player
+    aura_id: 1121564
+...

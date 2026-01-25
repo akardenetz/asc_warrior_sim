@@ -1,6 +1,6 @@
 ---
-id: 34460
-name: Ferocious Inspiration
+id: 1134460
+name: Ferocious Inspiration (Rank 3)
 category: class_hunter
 aura_type: buff
 school: physical
@@ -8,4 +8,8 @@ effects:
   - category: mod_stat
     stat: damage_dealt_percent
     value: 3
+    conditions:
+      - apply_area_aura
+flags:
+  - passive_spell
 ...

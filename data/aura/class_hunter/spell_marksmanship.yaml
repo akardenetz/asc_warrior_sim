@@ -1,5 +1,5 @@
 ---
-id: 15906
+id: 1115906
 name: Trueshot Aura
 category: class_hunter
 aura_type: buff
@@ -8,9 +8,11 @@ effects:
   - category: mod_stat_percent
     stat: attack_power
     value: 10
+    conditions:
+      - apply_area_aura
 ...
 ---
-id: 20190
+id: 1120190
 name: Aspect of the Wild
 category: class_hunter
 aura_type: buff
@@ -19,4 +21,6 @@ effects:
   - category: mod_stat
     stat: nature_resistance
     value: 60
+    conditions:
+      - apply_area_aura
 ...

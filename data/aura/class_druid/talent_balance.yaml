@@ -1,11 +1,31 @@
 ---
-id: 48396
-name: Improved Moonkin Form
+id: 1148396
+name: Improved Moonkin Form (Rank 3)
+category: class_druid
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_applied_aura_effectiveness
+    affected_spell: 1124858
+    spell_effect_index_of_applied_aura: 1
+    applied_aura_effect_index: 1
+    mod: add_value
+    value: 3
+flags:
+  - passive_spell
+  - aura_is_hidden
+...
+---
+id: 1124907
+name: Moonkin Aura
 category: class_druid
 aura_type: buff
 school: physical
 effects:
   - category: mod_stat
+    stat: critical_strike_percent_spell
+    value: 5
+  - category: mod_stat
     stat: haste_percent
-    value: 3
+    value: 0
 ...

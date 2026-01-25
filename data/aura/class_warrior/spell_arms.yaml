@@ -1,3 +1,16 @@
-# debuff
-# rend 1111574
+---
+id: 1111574
+name: Rend
+category: class_warrior
+aura_type: debuff
+school: physical
+mechanic: bleeding
+duration: 15
+effects:
+  - category: periodic_damage
+    occurs_every: 3
+    instance_damage:
+      base_damage: 35
+      weapon_damage_multiplier: 0.2
+...
 # shattering throw 1164382

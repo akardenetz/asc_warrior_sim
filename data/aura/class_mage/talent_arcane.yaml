@@ -1,6 +1,6 @@
 ---
-id: 31583
-name: Arcane Empowerment
+id: 1131583
+name: Arcane Empowerment (Rank 3)
 category: class_mage
 aura_type: buff
 school: physical
@@ -8,4 +8,8 @@ effects:
   - category: mod_stat
     stat: damage_dealt_percent
     value: 3
+    conditions:
+      - apply_area_aura
+flags:
+  - passive_spell
 ...

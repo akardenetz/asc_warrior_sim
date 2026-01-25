@@ -1,5 +1,5 @@
 ---
-id: 33982
+id: 1133982
 name: Mangle (Cat)
 category: class_druid
 aura_type: debuff
@@ -11,7 +11,7 @@ effects:
     value: 30
 ...
 ---
-id: 33878
+id: 1133878
 name: Mangle (Bear)
 category: class_druid
 aura_type: debuff

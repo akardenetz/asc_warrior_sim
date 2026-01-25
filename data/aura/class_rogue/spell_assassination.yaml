@@ -1,5 +1,5 @@
 ---
-id: 8647
+id: 1118647
 name: Expose Armor
 category: class_rogue
 aura_type: debuff
@@ -9,4 +9,19 @@ effects:
   - category: mod_stat_percent
     stat: armor
     value: -20
+...
+---
+id: 1125351
+name: Deadly Poison
+category: class_rogue
+aura_type: debuff
+school: nature
+mechanic: poison
+duration: 12
+effects:
+  - category: periodic_damage
+    occurs_every: 3
+    instance_damage:
+      base_damage: 6
+      weapon_damage_multiplier: 0.12
 ...

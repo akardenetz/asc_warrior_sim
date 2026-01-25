@@ -1,13 +1,36 @@
 ---
-id: 31869
-name: Sanctified Retribution
+id: 1120045
+name: Improved Blessing of Might (Rank 2)
 category: class_paladin
 aura_type: buff
 school: physical
 effects:
-  - category: mod_stat
-    stat: damage_dealt_percent
+  - category: mod_spell_applied_aura_effectiveness
+    affected_spell: 1125916
+    spell_effect_index_of_applied_aura: 0
+    applied_aura_effect_index: 0
+    mod: add_value_percent
+    value: 25
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
+id: 1131869
+name: Sanctified Retribution (Rank 1)
+category: class_paladin
+aura_type: buff
+school: physical
+effects:
+  - category: mod_spell_applied_aura_effectiveness
+    affected_spell: 1110301
+    spell_effect_index_of_applied_aura: 0
+    applied_aura_effect_index: 0
+    mod: add_value
     value: 3
+flags:
+  - aura_is_hidden
+  - passive_spell
 ...
 ---
 id: 53648

@@ -6,6 +6,10 @@ aura_type: buff
 school: physical
 effects:
   - category: mod_stat
-    stat: haste_percent
+    stat: attack_speed_percent
     value: 20
+    conditions:
+      - apply_area_aura
+flags:
+  - passive_spell
 ...

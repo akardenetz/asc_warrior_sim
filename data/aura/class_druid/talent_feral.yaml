@@ -1,11 +1,13 @@
 ---
-id: 17007
-name: Leader of the Pack
+id: 1117007
+name: Leader of the Pack (Rank 1)
 category: class_druid
 aura_type: buff
 school: physical
 effects:
   - category: mod_stat
-    stat: critical_strike_percent
+    stat: critical_strike_percent_melee_ranged
     value: 5
+flags:
+  - passive_spell
 ...

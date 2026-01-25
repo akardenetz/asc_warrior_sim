@@ -1,0 +1,20 @@
+---
+id: 1125916
+name: Greater Blessing of Might
+gcd: 1.5
+school: holy
+effects:
+  - category: apply_aura
+    apply_on: player
+    aura_id: 1125916
+...
+---
+id: 1110301
+name: Retribution Aura
+gcd: 1.5
+school: holy
+effects:
+  - category: apply_aura
+    apply_on: player
+    aura_id: 1110301
+...

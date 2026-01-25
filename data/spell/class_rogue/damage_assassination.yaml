@@ -1,0 +1,10 @@
+---
+id: 1125351
+name: Deadly Poison
+school: physical
+gcd: 1.5
+effects:
+  - category: apply_aura
+    apply_on: target
+    aura_id: 1125351
+...

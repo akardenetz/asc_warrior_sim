@@ -1,6 +1,6 @@
 ---
-id: 10938
-name: 'Power Word: Fortitude'
+id: 1121564
+name: Prayer of Fortitude
 category: class_priest
 aura_type: buff
 school: holy
@@ -9,9 +9,6 @@ effects:
   - category: mod_stat
     stat: stamina
     value: 54
-# improvement_per_point:
-#   max_points: 2
-#   percent_per_point: 15
 ...
 ---
 id: 20190

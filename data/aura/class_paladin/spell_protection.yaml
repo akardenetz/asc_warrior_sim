@@ -1,6 +1,6 @@
 ---
-id: 20217
-name: Blessing of Kings
+id: 1120217
+name: Greater Blessing of Kings
 category: class_paladin
 aura_type: buff
 school: holy
@@ -17,8 +17,8 @@ effects:
     value: 10
 ...
 ---
-id: 20911
-name: Blessing of Sanctuary
+id: 1120911
+name: Greater Blessing of Sanctuary
 category: class_paladin
 aura_type: buff
 school: holy
@@ -33,4 +33,43 @@ effects:
   - category: mod_stat
     stat: damage_taken_percent
     value: -3
+...
+---
+id: 1119900
+name: Fire Resistance Aura
+category: class_paladin
+aura_type: buff
+school: holy
+effects:
+  - category: mod_stat
+    stat: fire_resistance
+    value: 60
+    conditions:
+      - apply_area_aura
+...
+---
+id: 1119898
+name: Frost Resistance Aura
+category: class_paladin
+aura_type: buff
+school: holy
+effects:
+  - category: mod_stat
+    stat: frost_resistance
+    value: 60
+    conditions:
+      - apply_area_aura
+...
+---
+id: 1119896
+name: Shadow Resistance Aura
+category: class_paladin
+aura_type: buff
+school: holy
+effects:
+  - category: mod_stat
+    stat: shadow_resistance
+    value: 60
+    conditions:
+      - apply_area_aura
 ...
