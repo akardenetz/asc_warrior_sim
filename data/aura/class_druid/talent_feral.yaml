@@ -1,0 +1,11 @@
+---
+id: 17007
+name: Leader of the Pack
+category: class_druid
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: critical_strike_percent
+    value: 5
+...

@@ -1,0 +1,22 @@
+---
+id: 15906
+name: Trueshot Aura
+category: class_hunter
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat_percent
+    stat: attack_power
+    value: 10
+...
+---
+id: 20190
+name: Aspect of the Wild
+category: class_hunter
+aura_type: buff
+school: nature
+effects:
+  - category: mod_stat
+    stat: nature_resistance
+    value: 60
+...

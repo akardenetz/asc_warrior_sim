@@ -1,0 +1,11 @@
+---
+id: 99999994
+name: Hunting for Sport
+category: class_hunter
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: haste_percent
+    value: 20
+...

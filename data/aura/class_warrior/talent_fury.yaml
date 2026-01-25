@@ -341,6 +341,25 @@ flags:
   - passive_spell
 ...
 ---
+id: 1156930
+name: Single-Minded Fury (Rank 1)
+category: class_warrior
+aura_type: buff
+school: physical
+effects:
+  - category: one_hand_wield_two_handed_axe
+  - category: one_hand_wield_two_handed_sword
+  - category: one_hand_wield_two_handed_mace
+  - category: mod_stat
+    stat: damage_dealt_percent_physical
+    value: -10
+    conditions:
+      - while_wielding_two_handed_weapon_in_one_hand
+flags:
+  - aura_is_hidden
+  - passive_spell
+...
+---
 id: 1112964
 name: Unbridled Wrath
 category: class_warrior

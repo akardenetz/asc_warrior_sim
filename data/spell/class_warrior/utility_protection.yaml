@@ -9,3 +9,14 @@ effects:
     apply_on: player
     aura_id: 1129131
 ...
+---
+id: 1107386
+name: Sunder Armor
+school: physical
+gcd: 1.5
+cost: 15
+effects:
+  - category: apply_aura
+    apply_on: target
+    aura_id: 1129131
+...

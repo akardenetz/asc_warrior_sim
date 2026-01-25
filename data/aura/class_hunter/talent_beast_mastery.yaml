@@ -1,0 +1,11 @@
+---
+id: 34460
+name: Ferocious Inspiration
+category: class_hunter
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_dealt_percent
+    value: 3
+...

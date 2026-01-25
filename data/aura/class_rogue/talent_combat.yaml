@@ -1,0 +1,11 @@
+---
+id: 58683
+name: Savage Combat
+category: class_rogue
+aura_type: debuff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_taken_percent_physical
+    value: 4
+...

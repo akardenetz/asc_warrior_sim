@@ -1,0 +1,33 @@
+---
+id: 10538
+name: Fire Resistance Totem
+category: class_shaman
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: fire_resistance
+    value: 60
+...
+---
+id: 10479
+name: Frost Resistance Totem
+category: class_shaman
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: frost_resistance
+    value: 60
+...
+---
+id: 10601
+name: Nature Resistance Totem
+category: class_shaman
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: nature_resistance
+    value: 60
+...

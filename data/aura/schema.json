@@ -20,7 +20,8 @@
                 "with_two_handed_weapons",
                 "with_off_hand",
                 "while_dual_wielding_one_handed_weapons",
-                "bad_luck_protection"
+                "bad_luck_protection",
+                "while_wielding_two_handed_weapon_in_one_hand"
             ]
         },
         "stacks": {
@@ -74,7 +75,10 @@
                 { "$ref": "#/definitions/effect_mod_spell_damage_dealt_percent"},
                 { "$ref": "#/definitions/effect_mod_spell_critical_strike_chance"},
                 { "$ref": "#/definitions/effect_mod_spell_critical_damage_bonus"},
-                { "$ref": "#/definitions/effect_ignore_spell_state"}
+                { "$ref": "#/definitions/effect_ignore_spell_state"},
+                { "$ref": "#/definitions/effect_one_hand_wield_two_handed_sword"},
+                { "$ref": "#/definitions/effect_one_hand_wield_two_handed_axe"},
+                { "$ref": "#/definitions/effect_one_hand_wield_two_handed_mace"}
 			]
         },
 		"aura_id": 	{"type": "integer", "description": "ID of the aura applied by the effect"},
@@ -83,6 +87,30 @@
 		"chance": 	{"type": "number", "exclusiveMinimum": 0, "inclusiveMaximum": 1, "description": "Chance to proc the effect"},
 		"icd": 		{"type": "integer", "exclusiveMinimum": 0, "description": "Internal cooldown in seconds of the effect"},
 		"aura_placed_on": {"type": "string", "enum": ["player", "target"]},
+		"effect_one_hand_wield_two_handed_sword": {
+			"type": "object",
+			"description": "Two handed sword is usable in one hand",
+			"required": ["category"],
+			"properties": {
+				"category": {"type": "string", "const": "one_hand_wield_two_handed_sword"}
+			}
+		},
+		"effect_one_hand_wield_two_handed_axe": {
+			"type": "object",
+			"description": "Two handed axe is usable in one hand",
+			"required": ["category"],
+			"properties": {
+				"category": {"type": "string", "const": "one_hand_wield_two_handed_axe"}
+			}
+		},
+		"effect_one_hand_wield_two_handed_mace": {
+			"type": "object",
+			"description": "Two handed mace is usable in one hand",
+			"required": ["category"],
+			"properties": {
+				"category": {"type": "string", "const": "one_hand_wield_two_handed_mace"}
+			}
+		},
 		"effect_trigger_spells_when_spells_used": {
 			"type": "object",
 			"description": "Trigger spells when other spells are used.",
@@ -466,10 +494,17 @@
                 "consumable_potion",
                 "consumable_explosive",
                 "consumable_other",
-                "raid_comp",
                 "racial",
                 "equip",
-                "class_warrior"
+                "class_warrior",
+                "class_paladin",
+                "class_shaman",
+                "class_druid",
+                "class_hunter",
+                "class_rogue",
+                "class_priest",
+                "class_mage",
+                "class_warlock"
             ]
         },
         "aura_type": {"type": "string", "enum": ["buff", "debuff"], "description": "Positive or negative effect"},

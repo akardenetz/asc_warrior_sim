@@ -10,3 +10,18 @@ effects:
     occurs_every: 1
     instance_power: 10
 ...
+---
+id: 1158567
+name: Sunder Armor
+category: class_warrior
+aura_type: debuff
+school: physical
+duration: 30
+stacks:
+  max_count: 5
+  mod: multiply_value
+effects:
+  - category: mod_stat_percent
+    stat: armor
+    value: -4
+...

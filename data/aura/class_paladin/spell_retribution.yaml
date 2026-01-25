@@ -1,0 +1,27 @@
+---
+id: 25291
+name: Blessing of Might
+category: class_paladin
+aura_type: buff
+school: holy
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: attack_power
+    value: 232
+# improvement_per_point:
+#   max_points: 5
+#   percent_per_point: 5
+...
+---
+id: 54499
+name: Heart of the Crusader
+category: class_paladin
+aura_type: debuff
+school: holy
+duration: 20
+effects:
+  - category: mod_stat
+    stat: damage_taken_critical_strike_percent
+    value: 3
+...

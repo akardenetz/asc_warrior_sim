@@ -82,3 +82,27 @@ effects:
     stat: strength
     value: 0
 ...
+---
+id: 1125289
+name: Battle Shout
+category: class_warrior
+aura_type: buff
+school: physical
+duration: 900
+effects:
+  - category: mod_stat
+    stat: attack_power
+    value: 232
+...
+---
+id: 1100469
+name: Commanding Shout
+category: class_warrior
+aura_type: buff
+school: physical
+duration: 900
+effects:
+  - category: mod_stat
+    stat: hit_points
+    value: 360
+...

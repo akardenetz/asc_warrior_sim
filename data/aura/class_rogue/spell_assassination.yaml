@@ -1,0 +1,12 @@
+---
+id: 8647
+name: Expose Armor
+category: class_rogue
+aura_type: debuff
+school: physical
+duration: 300
+effects:
+  - category: mod_stat_percent
+    stat: armor
+    value: -20
+...

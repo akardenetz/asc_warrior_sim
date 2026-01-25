@@ -1,0 +1,51 @@
+---
+id: 21850
+name: Gift of the Wild
+category: class_druid
+aura_type: buff
+school: nature
+duration: 3600
+effects:
+  - category: mod_stat
+    stat: strength
+    value: 12
+  - category: mod_stat
+    stat: agility
+    value: 12
+  - category: mod_stat
+    stat: stamina
+    value: 12
+  - category: mod_stat
+    stat: armor
+    value: 285
+  - category: mod_stat
+    stat: fire_resistance
+    value: 20
+  - category: mod_stat
+    stat: frost_resistance
+    value: 20
+  - category: mod_stat
+    stat: shadow_resistance
+    value: 20
+  - category: mod_stat
+    stat: nature_resistance
+    value: 20
+  - category: mod_stat
+    stat: arcane_resistance
+    value: 20
+# improvement_per_point:
+#   max_points: 2
+#   percent_per_point: 20
+...
+---
+id: 770
+name: Faerie Fire
+category: class_druid
+aura_type: debuff
+school: nature
+duration: 300
+effects:
+  - category: mod_stat_percent
+    stat: armor
+    value: -5
+...

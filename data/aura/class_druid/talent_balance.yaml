@@ -1,0 +1,11 @@
+---
+id: 48396
+name: Improved Moonkin Form
+category: class_druid
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: haste_percent
+    value: 3
+...

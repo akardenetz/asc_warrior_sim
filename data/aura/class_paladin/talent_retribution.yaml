@@ -1,0 +1,33 @@
+---
+id: 31869
+name: Sanctified Retribution
+category: class_paladin
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: damage_dealt_percent
+    value: 3
+...
+---
+id: 53648
+name: Swift Retribution
+category: class_paladin
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: haste_percent
+    value: 3
+...
+---
+id: 28878
+name: Heroic Presence
+category: class_paladin
+aura_type: buff
+school: physical
+effects:
+  - category: mod_stat
+    stat: hit_percent
+    value: 1
+...
